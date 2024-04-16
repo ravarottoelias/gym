@@ -35,5 +35,9 @@ class AppServiceProvider extends ServiceProvider
         if (env('REDIRECT_HTTPS')) {
             $this->app['request']->server->set('HTTPS', true);
         }
+
+        if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+        }
     }
 }

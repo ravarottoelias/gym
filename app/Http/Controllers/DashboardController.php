@@ -13,6 +13,7 @@ use App\Followup;
 use App\ChequeDetail;
 use App\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -20,14 +21,16 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     public function index()
     {
+        Log::info("DashboardController::index - " . Auth::user());
         JavaScript::put([
             'jsRegistraionTrendLabel' => @trans('custom.members'),
             'jsRegistraionsCount' => \Utilities::registrationsTrend(),
             'jsMembersPerPlan' => \Utilities::membersPerPlan(),
         ]);
+
 
         $expirings = Subscription::dashboardExpiring()->paginate(5);
         $expiringCount = $expirings->total();
