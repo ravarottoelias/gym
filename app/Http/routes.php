@@ -246,3 +246,9 @@ Route::group(['prefix' => 'user/permission', 'middleware' => ['auth', 'role:Gymi
     Route::post('{id}/update', 'AclController@updatePermission');
     Route::post('{id}/delete', 'AclController@deletePermission');
 });
+
+//
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Gymie']], function () {   
+    Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+});
+

@@ -580,15 +580,15 @@ class Utilities
     public static function registrationsTrend()
     {
         // Get Financial date
-        $startDate = new Carbon(Setting::where('key', '=', 'financial_start')->pluck('value'));
+        $startDate = new Carbon(Setting::where('key', '=', 'financial_start')->pluck('value')->first());
         $data = [];
-
+        
         for ($i = 1; $i <= 12; $i++) {
             //$members = member::registrations($startDate->month,$startDate->year); // Laravel Scoped Query Issue: Workaroud Needed
             $members = Member::whereMonth('created_at', '=', $startDate->month)->whereYear('created_at', '=', $startDate->year)->count();
             $data[] = ['month' => $startDate->format('Y-m'), 'registrations' => $members];
             $startDate->addMonth();
-        }
+        }        
 
         return json_encode($data);
     }
