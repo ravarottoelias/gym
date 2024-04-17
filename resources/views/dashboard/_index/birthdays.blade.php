@@ -14,7 +14,7 @@
             </tr>
         @empty
             <div class="tab-empty-panel font-size-24 color-grey-300">
-                No Data
+                {{ @trans('custom.no_data') }}
             </div>
         @endforelse
     </table>

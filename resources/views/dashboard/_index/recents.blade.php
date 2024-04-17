@@ -27,12 +27,12 @@
             </tr>
         @empty
             <div class="tab-empty-panel font-size-24 color-grey-300">
-                No Data
+                {{ @trans('custom.no_data') }}
             </div>
         @endforelse
     </table>
 </div>
 @if(!$recents->isEmpty())
     <a class="btn btn-color btn-xs palette-concrete pull-right margin-right-10 margin-top-10"
-       href="{{ action('MembersController@index') }}">View All</a>
+       href="{{ action('MembersController@index') }}">{{ @trans('custom.view_all') }}</a>
 @endif
