@@ -134,6 +134,7 @@ return [
     'sort_by' => 'Ordenar por',
     'order' => 'Orden',
     'keyword' => 'Palabra clave',
+    'no_data' => 'Sin datos',
        
 
 
@@ -205,9 +206,6 @@ return [
     'enter_details_followup' => 'Detalles de seguimiento',
     'send_password_reset_link' => 'Enviar correo de recuperación de contraseña',
 
-
-
-
     'code' => 'Código',
     'member_start_at' => 'Socio desde',
     'member_details' => 'Detalles de Socio',
@@ -252,4 +250,14 @@ return [
     'make_new_password' => 'Crear contraseña',
     'password_reset_success_message' => 'Su contraseña ha sido actualizada con éxito.',
     'login' => 'Iniciar sesión',
+
+    /**
+     * General Buttons
+     */
+    'cancel' => 'Cancelar',
+    'renew' => 'Renovar',
+    'view_all' => 'Ver todos',
+    'add' => 'Agregar',
+    'add_new' => 'Agregar nuevo',
+    'pay' => 'Pagar',
 ];

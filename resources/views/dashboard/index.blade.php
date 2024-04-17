@@ -49,7 +49,7 @@
                         <div class="panel-title">
                             <div class="panel-head"><i class="fa fa-users"></i><a href="{{ action('MembersController@index') }}"> {{ @trans('custom.members') }} </a></div>
                             <div class="pull-right"><a href="{{ action('MembersController@create') }}" class="btn-sm btn-primary active" role="button"><i
-                                            class="fa fa-user-plus"></i> Add</a></div>
+                                            class="fa fa-user-plus"></i> {{ @trans('custom.add') }}</a></div>
                         </div>
 
                         <div class="panel-body with-nav-tabs">
@@ -94,7 +94,7 @@
                         <div class="panel-title">
                             <div class="panel-head"><i class="fa fa-phone"></i><a href="{{ action('EnquiriesController@index') }}">{{ @trans('custom.enquiries') }}</a></div>
                             <div class="pull-right"><a href="{{ action('EnquiriesController@create') }}" class="btn-sm btn-primary active" role="button"><i
-                                            class="fa fa-phone"></i> Add</a></div>
+                                            class="fa fa-phone"></i> {{ @trans('custom.add') }}</a></div>
                         </div>
 
                         <div class="panel-body with-nav-tabs">
@@ -130,7 +130,7 @@
                         <div class="panel-title">
                             <div class="panel-head"><i class="fa fa-usd"></i><a href="{{ action('ExpensesController@index') }}">{{ @trans('custom.expenses') }}</a></div>
                             <div class="pull-right"><a href="{{ action('ExpensesController@create') }}" class="btn-sm btn-primary active" role="button">
-                                    <i class="fa fa-usd"></i> Add</a>
+                                    <i class="fa fa-usd"></i> {{ @trans('custom.add') }}</a>
                             </div>
                         </div>
 
