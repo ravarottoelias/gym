@@ -57,11 +57,6 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('login', 'Auth\AuthController@getLogin')->name('login');
     Route::post('login', 'Auth\AuthController@postLogin');
     Route::get('logout', 'Auth\AuthController@getLogout');
-    Route::get('forgot-password', 'Auth\PasswordController@getEmail');
-    Route::post('forgot-password', 'Auth\PasswordController@sendPasswordResetLink');
-    Route::get('password/reset/{token}', 'Auth\PasswordController@getResetPassword');
-
-    Route::post('password/reset/{token}', 'Auth\PasswordController@postResetPassword')->name('post_reset_passord');
 });
 
 //dashboard
