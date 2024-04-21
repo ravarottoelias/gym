@@ -11,11 +11,26 @@
 * Overrides ********************
 ********************************/
 body{
-	background: #757575  url('../img/web/bg.jpg') !important;
+	/* background: #757575  url('../img/web/bg.jpg') !important; */
+	background-image: url('../img/web/login-bg.jpg') !important;
+  	background-repeat: no-repeat !important;
+	background-size:contain !important;
+	background-position:right !important;
+	font-family: "Montserrat", sans-serif;
+  	font-optical-sizing: auto;
+  	font-style: normal;
 }
 
+.auth-page .wrapper {
+	width: 430px;
+    margin: 50px 0 0 0;
+}
+
+
 /* Global - Master */
-.auth-page, header .logo, .leftside, .leftside .widget .footer {
+/* .auth-page, */
+ header .logo,
+.leftside, .leftside .widget .footer {
     background: #000000;
 }
 
