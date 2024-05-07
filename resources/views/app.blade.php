@@ -66,11 +66,10 @@
             <!-- BEGIN RPOFILE -->
             <div class="nav-profile">
                 <div class="thumb">
-                    <?php 
-                    
+                    <?php  
                         $image = Auth::user()->profile_picture; 
                     ?>
-                    <img src="{{ Auth::user()->getImageUrl(null, 'thumb') }}" class="img-circle" alt=""/>
+                    <img src="{{ Auth::user()->getImageUrl('profile', 'thumb') }}" class="img-circle" alt=""/>
                 </div>
                 <div class="info">
                     <span class="color-grey-400">{{Utilities::getGreeting()}},</span><br/>
@@ -79,6 +78,7 @@
                 <a href="{{url('auth/logout')}}" class="button"><i class="ion-log-out"></i></a>
             </div>
             <!-- END RPOFILE -->
+            
             <!-- BEGIN NAV -->
             <div class="title">{{ trans('custom.navigation') }}</div>
             <ul class="nav-sidebar">
@@ -88,28 +88,28 @@
                     </a>
                 </li>
 
-                @permission(['manage-gymie','manage-enquiries','view-enquiry'])
+                @permission(('manage-gymie','manage-enquiries','view-enquiry'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('enquiries*',true) }}">
                     <a href="#">
                         <i class="ion-ios-telephone"></i> <span>{{ trans('custom.enquiries') }}</span>
                     </a>
                     <ul>
                         <li class="{{ Utilities::setActiveMenu('enquiries/all') }}"><a href="{{ action('EnquiriesController@index') }}">{{ trans('custom.all_enquiries') }}</a></li>
-                        @permission(['manage-gymie','manage-enquiries','add-enquiry'])
+                        @permission(('manage-gymie','manage-enquiries','add-enquiry'))
                         <li class="{{ Utilities::setActiveMenu('enquiries/create') }}"><a href="{{ action('EnquiriesController@create') }}">{{ trans('custom.add_enquiries') }}</a></li>
                         @endpermission
                     </ul>
                 </li>
                 @endpermission
 
-                @permission(['manage-gymie','manage-members','view-member'])
+                @permission(('manage-gymie','manage-members','view-member'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('members*',true) }}">
                     <a href="#">
                         <i class="ion-person-add"></i> <span>{{ trans('custom.members') }}</span>
                     </a>
                     <ul>
                         <li class="{{ Utilities::setActiveMenu('members/all') }}"><a href="{{ action('MembersController@index') }}">{{ trans('custom.all_members') }}</a></li>
-                        @permission(['manage-gymie','manage-members','add-member'])
+                        @permission(('manage-gymie','manage-members','add-member'))
                         <li class="{{ Utilities::setActiveMenu('members/create') }}"><a href="{{ action('MembersController@create') }}">{{ trans('custom.add_members') }}</a></li>
                         @endpermission
                         <li class="{{ Utilities::setActiveMenu('members/active') }}"><a href="{{ action('MembersController@active') }}">{{ trans('custom.active_members') }}</a></li>
@@ -119,21 +119,21 @@
                 </li>
                 @endpermission
 
-                @permission(['manage-gymie','manage-payments','view-payment'])
+                @permission(('manage-gymie','manage-payments','view-payment'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('payments*',true) }}">
                     <a href="#">
                         <i class="ion-cash"></i> <span>{{ trans('custom.payments') }}</span>
                     </a>
                     <ul>
                         <li class="{{ Utilities::setActiveMenu('payments/all') }}"><a href="{{ action('PaymentsController@index') }}">{{ trans('custom.all_payments') }}</a></li>
-                        @permission(['manage-gymie','manage-payments','add-payment'])
+                        @permission(('manage-gymie','manage-payments','add-payment'))
                         <li class="{{ Utilities::setActiveMenu('payments/create') }}"><a href="{{ action('PaymentsController@create') }}">{{ trans('custom.add_payments') }}</a></li>
                         @endpermission
                     </ul>
                 </li>
                 @endpermission
 
-                @permission(['manage-gymie','manage-subscriptions','view-subscription'])
+                @permission(('manage-gymie','manage-subscriptions','view-subscription'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('subscriptions*',true) }}">
                     <a href="#">
                         <i class="ion-android-checkbox-outline"></i> <span>{{ trans('custom.subscriptions') }}</span>
@@ -141,7 +141,7 @@
                     <ul>
                         <li class="{{ Utilities::setActiveMenu('subscriptions/all') }}"><a href="{{ action('SubscriptionsController@index') }}">{{ trans('custom.all_subscriptions') }}
                                 </a></li>
-                        @permission(['manage-gymie','manage-subscriptions','add-subscription'])
+                        @permission(('manage-gymie','manage-subscriptions','add-subscription'))
                         <li class="{{ Utilities::setActiveMenu('subscriptions/create') }}"><a href="{{ action('SubscriptionsController@create') }}">{{ trans('custom.add_subscriptions') }}
                                 </a></li>
                         @endpermission
@@ -152,23 +152,23 @@
                     </ul>
                 </li>
                 @endpermission
+                <!-- 
+                <li class="nav-dropdown {{-- Utilities::setActiveMenu('reports*',true) --}}">
+                    <a href="#">
+                        <i class="fa fa-file"></i> <span>Reports</span>
+                    </a>
+                    <ul>
+                        <li class="{{-- Utilities::setActiveMenu('reports/members/*') --}}"><a href="{{-- action('ReportsController@gymMemberCharts') --}}">Members</a></li>
+                        <li class="{{-- Utilities::setActiveMenu('reports/enquiries/*') --}}"><a href="{{-- action('ReportsController@enquiryCharts') --}}">Enquiries</a></li>
+                        <li class="{{-- Utilities::setActiveMenu('reports/subscriptions/*') --}}"><a href="{{-- action('ReportsController@subscriptionCharts') --}}">Subscriptions</a></li>
+                        <li class="{{-- Utilities::setActiveMenu('reports/payments/*') --}}"><a href="{{-- action('ReportsController@paymentCharts') --}}">Payments</a></li>                            
+                        <li class="{{-- Utilities::setActiveMenu('reports/expenses/*') --}}"><a href="{{-- action('ReportsController@expenseCharts') --}}">Expenses</a></li>                            
+                        <li class="{{-- Utilities::setActiveMenu('reports/invoices/*') --}}"><a href="{{-- action('ReportsController@invoiceCharts') --}}">Invoices</a></li>                            
+                    </ul>
+                </li>
+                -->
 
-            <!-- <li class="nav-dropdown {{-- Utilities::setActiveMenu('reports*',true) --}}">
-                            <a href="#">
-                                <i class="fa fa-file"></i> <span>Reports</span>
-                            </a>
-                            <ul>
-                                <li class="{{-- Utilities::setActiveMenu('reports/members/*') --}}"><a href="{{-- action('ReportsController@gymMemberCharts') --}}">Members</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/enquiries/*') --}}"><a href="{{-- action('ReportsController@enquiryCharts') --}}">Enquiries</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/subscriptions/*') --}}"><a href="{{-- action('ReportsController@subscriptionCharts') --}}">Subscriptions</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/payments/*') --}}"><a href="{{-- action('ReportsController@paymentCharts') --}}">Payments</a></li>                            
-                                <li class="{{-- Utilities::setActiveMenu('reports/expenses/*') --}}"><a href="{{-- action('ReportsController@expenseCharts') --}}">Expenses</a></li>                            
-                                <li class="{{-- Utilities::setActiveMenu('reports/invoices/*') --}}"><a href="{{-- action('ReportsController@invoiceCharts') --}}">Invoices</a></li>                            
-                            </ul>
-                        </li> -->
-
-
-                @permission(['manage-gymie','manage-invoices','view-invoice'])
+                @permission(('manage-gymie','manage-invoices','view-invoice'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('invoices*',true) }}">
                     <a href="#">
                         <i class="ion-ios-paper"></i> <span>{{ trans('custom.invoices') }}</span>
@@ -186,21 +186,21 @@
                 </li>
                 @endpermission
 
-                @permission(['manage-gymie','manage-expenses','view-expense'])
+                @permission(('manage-gymie','manage-expenses','view-expense'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('expenses*',true) }}">
                     <a href="#">
                         <i class="fa fa-inr"></i> <span>{{ trans('custom.expenses') }}</span>
                     </a>
                     <ul>
                         <li class="{{ Utilities::setActiveMenu('expenses/all') }}"><a href="{{ action('ExpensesController@index') }}">{{ trans('custom.all_expenses') }}</a></li>
-                        @permission(['manage-gymie','manage-expenses','add-expense'])
+                        @permission(('manage-gymie','manage-expenses','add-expense'))
                         <li class="{{ Utilities::setActiveMenu('expenses/create') }}"><a href="{{ action('ExpensesController@create') }}">{{ trans('custom.add_expense') }}</a></li>
                         @endpermission
-                        @permission(['manage-gymie','manage-expenseCategories','view-expenseCategory'])
+                        @permission(('manage-gymie','manage-expenseCategories','view-expenseCategory'))
                         <li class="{{ Utilities::setActiveMenu('expenses/categories/all') }}"><a href="{{ action('ExpenseCategoriesController@index') }}">
                                 {{ trans('custom.expense_categories') }}</a></li>
                         @endpermission
-                        @permission(['manage-gymie','manage-expenseCategories','add-expenseCategory'])
+                        @permission(('manage-gymie','manage-expenseCategories','add-expenseCategory'))
                         <li class="{{ Utilities::setActiveMenu('expenses/categories/create') }}"><a href="{{ action('ExpenseCategoriesController@create') }}">
                                 {{ trans('custom.add_category') }}</a></li>
                         @endpermission
@@ -208,21 +208,21 @@
                 </li>
                 @endpermission
 
-                @permission(['manage-gymie','manage-plans','view-plan'])
+                @permission(('manage-gymie','manage-plans','view-plan'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('plans*',true) }}">
                     <a href="#">
                         <i class="ion-compose"></i> <span>{{ trans('custom.plans') }}</span>
                     </a>
                     <ul>
                         <li class="{{ Utilities::setActiveMenu('plans/all') }}"><a href="{{ action('PlansController@index') }}">{{ trans('custom.all_plans') }}</a></li>
-                        @permission(['manage-gymie','manage-plans','add-plan'])
+                        @permission(('manage-gymie','manage-plans','add-plan'))
                         <li class="{{ Utilities::setActiveMenu('plans/create') }}"><a href="{{ action('PlansController@create') }}">{{ trans('custom.add_plan') }}</a></li>
                         @endpermission
-                        @permission(['manage-gymie','manage-services','view-service'])
+                        @permission(('manage-gymie','manage-services','view-service'))
                         <li class="{{ Utilities::setActiveMenu('plans/services/all') }}"><a href="{{ action('ServicesController@index') }}">{{ trans('custom.gym_services') }}</a>
                         </li>
                         @endpermission
-                        @permission(['manage-gymie','manage-services','add-service'])
+                        @permission(('manage-gymie','manage-services','add-service'))
                         <li class="{{ Utilities::setActiveMenu('plans/services/create') }}"><a href="{{ action('ServicesController@create') }}">{{ trans('custom.add_service') }}</a>
                         </li>
                         @endpermission
@@ -230,7 +230,7 @@
                 </li>
                 @endpermission
 
-                {{-- @permission(['manage-gymie','manage-sms'])
+                {{-- @permission(('manage-gymie','manage-sms'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('sms*',true) }}">
                     <a href="#">
                         <i class="ion-ios-paper"></i> <span>SMS</span>
@@ -244,7 +244,7 @@
                 </li>
                 @endpermission --}}
 
-                @permission(['manage-gymie','manage-users'])
+                @permission(('manage-gymie','manage-users'))
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('user*',true) }}">
                     <a href="#">
                         <i class="fa fa-users"></i> <span>{{ trans('custom.users') }}</span>
@@ -256,7 +256,7 @@
                                 {{ trans('custom.add_new_user') }}</a></li>
                         <li class="{{ Utilities::setActiveMenu('user/role') }}"><a href="{{ action('AclController@roleIndex') }}"><i class="fa fa-list"></i>
                                 {{ trans('custom.roles') }}</a></li>
-                        @role('Gymie')
+                        @role(('Gymie'))
                         <li class="{{ Utilities::setActiveMenu('user/permission') }}"><a href="{{ action('AclController@permissionIndex') }}"><i
                                         class="fa fa-list"></i> {{ trans('custom.permissions') }}</a></li>
                         @endrole
@@ -264,7 +264,7 @@
                 </li>
                 @endpermission
 
-                @permission(['manage-gymie','manage-settings'])
+                @permission(('manage-gymie','manage-settings'))
                 <li class="{{ Utilities::setActiveMenu('settings*') }}">
                     <a href="{{ action('SettingsController@edit') }}">
                         <i class="fa fa-cogs fa-2x"></i> <span>{{ trans('custom.settings') }}</span>
@@ -312,7 +312,7 @@
 <!--validator-->
 <script src="{{ URL::asset('assets/plugins/bootstrapValidator/bootstrapValidator.min.js') }}" type="text/javascript"></script>
 
-{{-- @include('_jsVariables') --}}
+@include('_jsVariables')
 
 <!--Footer scripts-->
 @yield('footer_scripts')

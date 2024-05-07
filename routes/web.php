@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 // Log viewer route
 Route::get('logs', ['middleware' => ['auth', 'role:Gymie'], 'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index']);
 
@@ -53,11 +55,11 @@ Route::group(['prefix' => 'api', 'middleware' => ['jwt.auth']], function () {
 });
 
 //Auth routes
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('login', 'Auth\AuthController@getLogin')->name('login');
-    Route::post('login', 'Auth\AuthController@postLogin');
-    Route::get('logout', 'Auth\AuthController@getLogout');
-});
+// Route::group(['prefix' => 'auth'], function () {
+//     Route::get('login', 'Auth\AuthController@getLogin')->name('login');
+//     Route::post('login', 'Auth\AuthController@postLogin');
+//     Route::get('logout', 'Auth\AuthController@getLogout');
+// });
 
 //dashboard
 Route::group(['middleware' => ['auth']], function () {

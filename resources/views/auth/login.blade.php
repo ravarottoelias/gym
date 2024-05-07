@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
                 
-                                    <button type="submit" class="btn bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Sign in</button>
+                                    <button type="submit" class="btn bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Entrar</button>
                                 </div>
                             </form>
                             <div class="padding-md">

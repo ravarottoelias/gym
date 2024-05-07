@@ -16,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
     
     public function boot(UrlGenerator $url)
     {
+        \Sofa\Eloquence\Builder::setParserFactory(new \Sofa\Eloquence\Searchable\ParserFactory);
+        
         if (env('REDIRECT_HTTPS')) {
             $url->formatScheme('https://');
         }
