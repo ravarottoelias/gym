@@ -62,7 +62,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form id="loginform" method="post" action="{{ url('/auth/login') }}">
+                            <form id="loginform" method="post" action="{{ route('login') }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                 <div class="box-body padding-md">
                 

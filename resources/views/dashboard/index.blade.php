@@ -5,9 +5,9 @@
     <div class="rightside bg-grey-100">
         <div class="container-fluid">
             @include('flash::message')
-            @permission(('manage-gymie','view-dashboard-quick-stats'))
+            @permission(['manage-gymie','view-dashboard-quick-stats'])
             <!-- Stat Tile  -->
-            <div class="row margin-top-10">
+            {{-- <div class="row margin-top-10">
                 <!-- Total Members -->
                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                     @include('dashboard._index.totalMembers')
@@ -37,12 +37,12 @@
                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                     @include('dashboard._index.collection')
                 </div>
-            </div>
+            </div> --}}
             @endpermission
 
             <!--Member Quick views -->
             <div class="row"> <!--Main Row-->
-                @permission(('manage-gymie','view-dashboard-members-tab'))
+                @permission(['manage-gymie','view-dashboard-members-tab'])
                 <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-title">
@@ -64,7 +64,7 @@
                             </ul>
 
                             <!-- Tab Content -->
-                            <div class="tab-content">
+                            {{-- <div class="tab-content">
                                 <div class="tab-pane fade in active" id="expiring">
                                     @include('dashboard._index.expiring', ['expirings' => $expirings])
                                 </div>
@@ -80,13 +80,13 @@
                                 <div class="tab-pane fade" id="recent">
                                     @include('dashboard._index.recents', ['recents' =>  $recents])
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
                 @endpermission
 
-                @permission(('manage-gymie','view-dashboard-enquiries-tab'))
+                @permission(['manage-gymie','view-dashboard-enquiries-tab'])
                 <!--Enquiry Quick view Tabs-->
                 <div class="col-lg-6">
                     <div class="panel">
@@ -121,7 +121,7 @@
             </div> <!--/Main row -->
 
 
-            @permission(('manage-gymie','view-dashboard-expense-tab'))
+            @permission(['manage-gymie','view-dashboard-expense-tab'])
             <div class="row">
                 <!--Expense Quick view Tabs-->
                 <div class="col-lg-6">
@@ -191,7 +191,7 @@
                     </div>
                 </div> --}}
 
-                @permission(('manage-gymie','view-dashboard-charts'))
+                @permission(['manage-gymie','view-dashboard-charts'])
                 <div class="col-lg-6">
                     <div class="panel bg-white">
                         <div class="panel-title">
@@ -213,7 +213,7 @@
 
             </div>
 
-            @permission(('manage-gymie','view-dashboard-charts'))
+            @permission(['manage-gymie','view-dashboard-charts'])
             <div class="row">
                 {{-- <div class="col-lg-6">
                     <div class="panel">

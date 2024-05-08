@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f1ab5a7c9a6c5547de441cc0eeab8d4",
+    "content-hash": "6f895bac1939c2ea3ed84e6d139f51a5",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2033,16 +2033,16 @@
         },
         {
             "name": "sofa/eloquence",
-            "version": "5.4",
+            "version": "5.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jarektkaczyk/eloquence.git",
-                "reference": "070d7e0976c1eaea383bf3aa07704b4c405e047e"
+                "reference": "6f821bcf24950b58e633cb0cac7bbee6acb0f34a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/070d7e0976c1eaea383bf3aa07704b4c405e047e",
-                "reference": "070d7e0976c1eaea383bf3aa07704b4c405e047e",
+                "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/6f821bcf24950b58e633cb0cac7bbee6acb0f34a",
+                "reference": "6f821bcf24950b58e633cb0cac7bbee6acb0f34a",
                 "shasum": ""
             },
             "require": {
@@ -2089,7 +2089,7 @@
                 "issues": "https://github.com/jarektkaczyk/eloquence/issues",
                 "source": "https://github.com/jarektkaczyk/eloquence"
             },
-            "time": "2017-04-22T14:09:10+00:00"
+            "time": "2017-04-22T14:38:11+00:00"
         },
         {
             "name": "sofa/hookable",
@@ -3857,22 +3857,23 @@
         },
         {
             "name": "zizaco/entrust",
-            "version": "dev-laravel-5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "3936ecf81efe2e124998b657a7adf03106e279e6"
+                "reference": "ba9241426f9c518982d868e2cbac381a9581d802"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/3936ecf81efe2e124998b657a7adf03106e279e6",
-                "reference": "3936ecf81efe2e124998b657a7adf03106e279e6",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/ba9241426f9c518982d868e2cbac381a9581d802",
+                "reference": "ba9241426f9c518982d868e2cbac381a9581d802",
                 "shasum": ""
             },
             "require": {
+                "illuminate/cache": "~5.0",
                 "illuminate/console": "~5.0",
                 "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "illuminate/database": "~5.0",
@@ -3880,7 +3881,18 @@
                 "phpunit/phpunit": "~4.1",
                 "sami/sami": "dev-master"
             },
+            "default-branch": true,
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Zizaco\\Entrust\\EntrustServiceProvider"
+                    ],
+                    "aliases": {
+                        "Entrust": "Zizaco\\Entrust\\EntrustFacade"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Zizaco\\Entrust\\": "src/Entrust/"
@@ -3895,12 +3907,12 @@
             ],
             "authors": [
                 {
-                    "name": "Andrew Elkins",
-                    "homepage": "http://andrewelkins.com"
-                },
-                {
                     "name": "Zizaco Zizuini",
                     "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
                 },
                 {
                     "name": "Ben Batschelet",
@@ -3922,9 +3934,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Zizaco/entrust/issues",
-                "source": "https://github.com/Zizaco/entrust/tree/laravel-5"
+                "source": "https://github.com/Zizaco/entrust/tree/master"
             },
-            "time": "2016-03-05T04:51:31+00:00"
+            "time": "2017-11-13T23:46:19+00:00"
         }
     ],
     "packages-dev": [

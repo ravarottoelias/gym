@@ -7,11 +7,11 @@
         <div class="page-head bg-grey-100 padding-top-15 no-padding-bottom">
             @include('flash::message')
             <h1 class="page-title no-line-height">{{ @trans('custom.expenses') }}
-                @permission(('manage-gymie','manage-expenses','add-expense'))
+                @permission(['manage-gymie','manage-expenses','add-expense'])
                 <a href="{{ action('ExpensesController@create') }}" class="page-head-btn btn-sm btn-primary active" role="button">Add New</a>
                 <small>Details of all gym expenses</small>
             </h1>
-            @permission(('manage-gymie','pagehead-stats'))
+            @permission(['manage-gymie','pagehead-stats'])
             <h1 class="font-size-30 text-right color-blue-grey-600 animated fadeInDown total-count pull-right"><span data-toggle="counter" data-start="0"
                                                                                                                      data-from="0" data-to="{{ $count }}"
                                                                                                                      data-speed="600"
@@ -121,7 +121,7 @@
                                                         class="{{ Utilities::getPaidUnpaid ($expense->paid) }}">{{ Utilities::getInvoiceStatus ($expense->paid) }}
                                             </td>
                                             <td class="text-center">
-                                                @permission(('manage-gymie','manage-expenses','edit-expense'))
+                                                @permission(['manage-gymie','manage-expenses','edit-expense'])
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-info">Actions</button>
                                                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -136,16 +136,16 @@
                                                                 </a>
                                                             @endif
                                                         </li>
-                                                        @permission(('manage-gymie','manage-expenses','edit-expense'))
+                                                        @permission(['manage-gymie','manage-expenses','edit-expense'])
                                                         <li>
                                                             <a href="{{ action('ExpensesController@edit',['id' => $expense->id]) }}">
                                                                 Edit details
                                                             </a>
                                                         </li>
                                                         @endpermission
-                                                        @permission(('manage-gymie','manage-expenses','delete-expense'))
+                                                        @permission(['manage-gymie','manage-expenses','delete-expense'])
                                                         <li>
-                                                            <a href="#" class="delete-record" data-delete-url="{{ url('expenses/'.$expense->id.'/delete') }}"
+                                                            <a href="#" class="delete-record" data-csrf-token="{{ csrf_token() }}" data-delete-url="{{ url('expenses/'.$expense->id.'/delete') }}"
                                                                data-record-id="{{$expense->id}}">
                                                                 Delete expense
                                                             </a>

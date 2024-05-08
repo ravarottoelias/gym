@@ -28,7 +28,7 @@ class Expense extends Model
 
     protected $searchableColumns = [
         'name' => 20,
-        'amount' => 10,
+        //'amount' => 10,
     ];
 
     protected $dates = ['created_at', 'updated_at', 'due_date'];

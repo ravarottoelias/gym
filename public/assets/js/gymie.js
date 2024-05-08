@@ -241,6 +241,7 @@ var gymie = (function ($) {
 			$('.delete-record').click(function () {
 				var recordId = $(this).attr("data-record-id");
 				var deleteUrl = $(this).attr("data-delete-url");
+				let tokenCSRF = $(this).attr("data-csrf-token");
 
 				if ($(this).attr("data-dependency") === 'true') {
 					var dependency = $(this).attr("data-dependency");
@@ -251,10 +252,10 @@ var gymie = (function ($) {
 					var dependencyMessage = "Data dependency";
 				}
 
-				recordDelete(recordId, deleteUrl, dependency, dependencyMessage);
+				recordDelete(recordId, deleteUrl, dependency, dependencyMessage, tokenCSRF);
 			});
 
-			function recordDelete(recordId, deleteUrl, dependency, dependencyMessage) {
+			function recordDelete(recordId, deleteUrl, dependency, dependencyMessage, tokenCSRF) {
 				if (dependency) {
 					swal("Warning!", dependencyMessage, "warning");
 				}
@@ -271,7 +272,8 @@ var gymie = (function ($) {
 					}, function () {
 						$.ajax({
 							url: deleteUrl,
-							type: "POST"
+							type: "POST",
+							data: {"_token": tokenCSRF}
 						})
 							.done(function (data) {
 								swal({
