@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Sofa\Eloquence\Eloquence;
+use Spatie\MediaLibrary\Media;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
@@ -65,11 +66,11 @@ class Member extends Model implements HasMediaConversions
     {
         $sorting_field = ($sorting_field != null ? $sorting_field : 'created_at');
         $sorting_direction = ($sorting_direction != null ? $sorting_direction : 'desc');
-
+        
         if ($drp_start == null or $drp_end == null) {
             return $query->select('mst_members.id', 'mst_members.member_code', 'mst_members.name', 'mst_members.contact', 'mst_members.created_at', 'mst_members.status', 'mst_members.photo')
-                        ->where('mst_members.status', '!=', \constStatus::Archive)
-                        ->orderBy($sorting_field, $sorting_direction);
+            ->where('mst_members.status', '!=', \constStatus::Archive)
+            ->orderBy($sorting_field, $sorting_direction);
         }
 
         return $query->select('mst_members.id', 'mst_members.member_code', 'mst_members.name', 'mst_members.contact', 'mst_members.created_at', 'mst_members.status', 'mst_members.photo')
@@ -109,7 +110,7 @@ class Member extends Model implements HasMediaConversions
 
 
     // Media i.e. Image size conversion
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
                 ->setManipulations(['w' => 50, 'h' => 50, 'q' => 100, 'fit' => 'crop'])

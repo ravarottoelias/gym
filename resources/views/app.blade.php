@@ -66,11 +66,10 @@
             <!-- BEGIN RPOFILE -->
             <div class="nav-profile">
                 <div class="thumb">
-                    <?php 
-                    
+                    <?php  
                         $image = Auth::user()->profile_picture; 
                     ?>
-                    <img src="{{ Auth::user()->getImageUrl(null, 'thumb') }}" class="img-circle" alt=""/>
+                    <img src="{{ Auth::user()->getImageUrl('profile', 'thumb') }}" class="img-circle" alt=""/>
                 </div>
                 <div class="info">
                     <span class="color-grey-400">{{Utilities::getGreeting()}},</span><br/>
@@ -79,6 +78,7 @@
                 <a href="{{url('auth/logout')}}" class="button"><i class="ion-log-out"></i></a>
             </div>
             <!-- END RPOFILE -->
+            
             <!-- BEGIN NAV -->
             <div class="title">{{ trans('custom.navigation') }}</div>
             <ul class="nav-sidebar">
@@ -152,21 +152,21 @@
                     </ul>
                 </li>
                 @endpermission
-
-            <!-- <li class="nav-dropdown {{-- Utilities::setActiveMenu('reports*',true) --}}">
-                            <a href="#">
-                                <i class="fa fa-file"></i> <span>Reports</span>
-                            </a>
-                            <ul>
-                                <li class="{{-- Utilities::setActiveMenu('reports/members/*') --}}"><a href="{{-- action('ReportsController@gymMemberCharts') --}}">Members</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/enquiries/*') --}}"><a href="{{-- action('ReportsController@enquiryCharts') --}}">Enquiries</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/subscriptions/*') --}}"><a href="{{-- action('ReportsController@subscriptionCharts') --}}">Subscriptions</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/payments/*') --}}"><a href="{{-- action('ReportsController@paymentCharts') --}}">Payments</a></li>                            
-                                <li class="{{-- Utilities::setActiveMenu('reports/expenses/*') --}}"><a href="{{-- action('ReportsController@expenseCharts') --}}">Expenses</a></li>                            
-                                <li class="{{-- Utilities::setActiveMenu('reports/invoices/*') --}}"><a href="{{-- action('ReportsController@invoiceCharts') --}}">Invoices</a></li>                            
-                            </ul>
-                        </li> -->
-
+                <!-- 
+                <li class="nav-dropdown {{-- Utilities::setActiveMenu('reports*',true) --}}">
+                    <a href="#">
+                        <i class="fa fa-file"></i> <span>Reports</span>
+                    </a>
+                    <ul>
+                        <li class="{{-- Utilities::setActiveMenu('reports/members/*') --}}"><a href="{{-- action('ReportsController@gymMemberCharts') --}}">Members</a></li>
+                        <li class="{{-- Utilities::setActiveMenu('reports/enquiries/*') --}}"><a href="{{-- action('ReportsController@enquiryCharts') --}}">Enquiries</a></li>
+                        <li class="{{-- Utilities::setActiveMenu('reports/subscriptions/*') --}}"><a href="{{-- action('ReportsController@subscriptionCharts') --}}">Subscriptions</a></li>
+                        <li class="{{-- Utilities::setActiveMenu('reports/payments/*') --}}"><a href="{{-- action('ReportsController@paymentCharts') --}}">Payments</a></li>                            
+                        <li class="{{-- Utilities::setActiveMenu('reports/expenses/*') --}}"><a href="{{-- action('ReportsController@expenseCharts') --}}">Expenses</a></li>                            
+                        <li class="{{-- Utilities::setActiveMenu('reports/invoices/*') --}}"><a href="{{-- action('ReportsController@invoiceCharts') --}}">Invoices</a></li>                            
+                    </ul>
+                </li>
+                -->
 
                 @permission(['manage-gymie','manage-invoices','view-invoice'])
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('invoices*',true) }}">
@@ -230,7 +230,7 @@
                 </li>
                 @endpermission
 
-                {{-- @permission(['manage-gymie','manage-sms'])
+                @permission(['manage-gymie','manage-sms'])
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('sms*',true) }}">
                     <a href="#">
                         <i class="ion-ios-paper"></i> <span>SMS</span>
@@ -242,7 +242,7 @@
                         <li class="{{ Utilities::setActiveMenu('sms/log') }}"><a href="{{ action('SmsController@logIndex') }}">{{ trans('custom.log') }}</a></li>
                     </ul>
                 </li>
-                @endpermission --}}
+                @endpermission
 
                 @permission(['manage-gymie','manage-users'])
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('user*',true) }}">
@@ -256,7 +256,7 @@
                                 {{ trans('custom.add_new_user') }}</a></li>
                         <li class="{{ Utilities::setActiveMenu('user/role') }}"><a href="{{ action('AclController@roleIndex') }}"><i class="fa fa-list"></i>
                                 {{ trans('custom.roles') }}</a></li>
-                        @role('Gymie')
+                        @role(('Gymie'))
                         <li class="{{ Utilities::setActiveMenu('user/permission') }}"><a href="{{ action('AclController@permissionIndex') }}"><i
                                         class="fa fa-list"></i> {{ trans('custom.permissions') }}</a></li>
                         @endrole
@@ -312,7 +312,7 @@
 <!--validator-->
 <script src="{{ URL::asset('assets/plugins/bootstrapValidator/bootstrapValidator.min.js') }}" type="text/javascript"></script>
 
-{{-- @include('_jsVariables') --}}
+@include('_jsVariables')
 
 <!--Footer scripts-->
 @yield('footer_scripts')

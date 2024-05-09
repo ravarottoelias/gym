@@ -62,7 +62,11 @@
                                     </ul>
                                 </div>
                             @endif
+<<<<<<< HEAD
+                            <form id="loginform" method="post" action="{{ route('login') }}">
+=======
                             <form id="loginform" method="post" action="{{ url('/auth/login') }}">
+>>>>>>> 460dac111ce75ed2a67175258b65c63a9a92cbb4
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                 <div class="box-body padding-md">
                 
@@ -81,7 +85,11 @@
                                         </div>
                                     </div>
                 
+<<<<<<< HEAD
+                                    <button type="submit" class="btn bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Entrar</button>
+=======
                                     <button type="submit" class="btn bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Sign in</button>
+>>>>>>> 460dac111ce75ed2a67175258b65c63a9a92cbb4
                                 </div>
                             </form>
                             <div class="padding-md">

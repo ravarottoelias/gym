@@ -17,7 +17,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <?php  $invoiceList = App\Invoice::lists('invoice_number', 'id'); ?>
+                                        @php  $invoiceList = App\Invoice::pluck('invoice_number', 'id'); @endphp
                                         {!! Form::label('invoice_id', @trans('custom.invoice_number')) !!}
                                         {!! Form::select('invoice_id',$invoiceList,$payment_detail->invoice_id,['class'=>'form-control selectpicker show-tick', 'id' => 'invoice_id', 'data-live-search'=> 'true']) !!}
                                     </div>

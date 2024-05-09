@@ -145,7 +145,7 @@
                                                         @endpermission
                                                         @permission(['manage-gymie','manage-expenses','delete-expense'])
                                                         <li>
-                                                            <a href="#" class="delete-record" data-delete-url="{{ url('expenses/'.$expense->id.'/delete') }}"
+                                                            <a href="#" class="delete-record" data-csrf-token="{{ csrf_token() }}" data-delete-url="{{ url('expenses/'.$expense->id.'/delete') }}"
                                                                data-record-id="{{$expense->id}}">
                                                                 Delete expense
                                                             </a>

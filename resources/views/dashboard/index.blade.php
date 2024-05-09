@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="rightside bg-grey-100">
-
         <div class="container-fluid">
             @include('flash::message')
             @permission(['manage-gymie','view-dashboard-quick-stats'])
