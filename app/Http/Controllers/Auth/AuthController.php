@@ -2,37 +2,32 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Foundation\Auth\ResetsPasswords;
 
-class AuthController extends Controller
+class PasswordController extends Controller
 {
-    /**
-     * the model instance.
-     * @var User
-     */
-    protected $user;
-    /**
-     * The Guard implementation.
-     *
-     * @var Authenticator
-     */
-    protected $auth;
+    /*
+    |--------------------------------------------------------------------------
+    | Password Reset Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller is responsible for handling password reset requests
+    | and uses a simple trait to include this behavior. You're free to
+    | explore this trait and override any methods you wish to tweak.
+    |
+    */
+
+    use ResetsPasswords;
 
     /**
-     * Create a new authentication controller instance.
+     * Create a new password controller instance.
      *
-     * @param  Authenticator  $auth
      * @return void
      */
-    public function __construct(Guard $auth, User $user)
+    public function __construct()
     {
-        $this->user = $user;
-        $this->auth = $auth;
-
-        $this->middleware('guest', ['except' => ['getLogout']]);
+        $this->middleware('guest');
     }
 
     /**
@@ -102,4 +97,5 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
 }
