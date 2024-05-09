@@ -26,11 +26,11 @@
 
                 <td>
                     {!! Form::Open(['method' => 'POST','action' => ['SubscriptionsController@cancelSubscription',$expired->id]]) !!}
-                    @permission(('manage-gymie','manage-subscriptions','cancel-subscription'))
+                    @permission(['manage-gymie','manage-subscriptions','cancel-subscription'])
                     <button class="btn btn-xs btn-danger pull-right margin-left-5" type="submit">{{ @trans('custom.cancel') }}</button>
                     @endpermission
 
-                    @permission(('manage-gymie','manage-subscriptions','renew-subscription'))
+                    @permission(['manage-gymie','manage-subscriptions','renew-subscription'])
                     <a class="btn btn-xs btn-info pull-right"
                        href="{{ action('SubscriptionsController@renew',['id' => $expired->invoice_id]) }}">{{ @trans('custom.renew') }}</a>
                     @endpermission

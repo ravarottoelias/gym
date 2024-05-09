@@ -39,7 +39,7 @@ class PaymentsController extends Controller
         $invoiceList = Invoice::with('member')->get()->map(function ($invoice) {
             $invoice->invoice_number = $invoice->invoice_number . ' | ' . $invoice->member->name . ' - ' . $invoice->member->member_code;
             return $invoice;
-        })->lists('invoice_number', 'id');
+        })->pluck('invoice_number', 'id');
 
         return view('payments.create', compact('invoiceList'));
     }
@@ -125,7 +125,7 @@ class PaymentsController extends Controller
         $invoiceList = Invoice::with('member')->get()->map(function ($invoice) {
             $invoice->invoice_number = $invoice->invoice_number . ' | ' . $invoice->member->name . ' - ' . $invoice->member->member_code;
             return $invoice;
-        })->lists('invoice_number', 'id');
+        })->pluck('invoice_number', 'id');
 
         return view('payments.edit', compact('payment_detail', 'cheque_detail', 'invoiceList'));
     }
