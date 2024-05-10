@@ -47,13 +47,15 @@
                             </div>
 
                             <div class="row">
+                                {{ $settings['gym_logo'] }}
                                 @if($settings['gym_logo'] != "")
                                     <div class="col-sm-4">
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     {!! Form::label('gym_logo',@trans('custom.gym_logo')) !!}<br>
-                                                    <img alt="gym logo" src="{{url('/images/Invoice/'.'gym_logo'.'.jpg') }}"/>
+                                                    {{-- <img alt="gym logo" src="{{url('/images/Invoice/'.'gym_logo'.'.jpg') }}"/> --}}
+                                                    <img alt="gym logo" src="{{asset(Storage::url($settings['gym_logo'])) }}"/>
                                                 </div>
                                             </div>
                                         </div>

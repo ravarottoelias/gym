@@ -41,7 +41,7 @@
     <main>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-              <a class="navbar-brand" href="#">{{ Utilities::getSetting('gym_name')->first() }}</a>
+              <a class="navbar-brand" href="#">{{ Utilities::getSetting('gym_name') }}</a>
             </nav>
           
             <div class="row d-flex justify-content-center align-items-center _mb-auto">
@@ -62,11 +62,8 @@
                                     </ul>
                                 </div>
                             @endif
-<<<<<<< HEAD
                             <form id="loginform" method="post" action="{{ route('login') }}">
-=======
-                            <form id="loginform" method="post" action="{{ url('/auth/login') }}">
->>>>>>> 460dac111ce75ed2a67175258b65c63a9a92cbb4
+
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                 <div class="box-body padding-md">
                 
@@ -85,11 +82,8 @@
                                         </div>
                                     </div>
                 
-<<<<<<< HEAD
                                     <button type="submit" class="btn bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Entrar</button>
-=======
-                                    <button type="submit" class="btn bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Sign in</button>
->>>>>>> 460dac111ce75ed2a67175258b65c63a9a92cbb4
+
                                 </div>
                             </form>
                             <div class="padding-md">

@@ -42,20 +42,17 @@ return [
     */
 
     'disks' => [
-
-        'media' => [
-            'driver' => 'local',
-            'root'   => public_path().'/media/staff',
-        ],
-
-        'media_profile' => [
-            'driver' => 'local',
-            'root'   => public_path().'/media/profile',
-        ],
         
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
         ],
 
         'ftp' => [

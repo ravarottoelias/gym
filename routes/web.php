@@ -54,23 +54,19 @@ Route::group(['prefix' => 'api', 'middleware' => ['jwt.auth']], function () {
     Route::get('expenses/{id}', 'Api\ExpensesController@show');
 });
 
-//Auth routes
-// Route::group(['prefix' => 'auth'], function () {
-//     Route::get('login', 'Auth\AuthController@getLogin')->name('login');
-//     Route::post('login', 'Auth\AuthController@postLogin');
-//     Route::get('logout', 'Auth\AuthController@getLogout');
-// });
-
 //dashboard
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@index');
     Route::post('/dashboard/smsRequest', 'DashboardController@smsRequest');
+    Route::group(['prefix' => 'dashboard', 'middleware' => ['role:Gymie']], function () {   
+        Route::get('/audits/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    });
 });
 
 //MembersController
 Route::group(['prefix' => 'members', 'middleware' => ['auth']], function () {
-    Route::get('/', ['middleware' => ['permission:manage-gymie|manage-members|view-member'], 'uses' => 'MembersController@index']);
+    Route::get('/', ['middleware' => ['permission:manage-gymie|manage-members|view-member'], 'uses' => 'MembersController@index'])->name('members_index');
     Route::get('all', ['middleware' => ['permission:manage-gymie|manage-members|view-member'], 'uses' => 'MembersController@index']);
     Route::get('active', ['middleware' => ['permission:manage-gymie|manage-members|view-member'], 'uses' => 'MembersController@active']);
     Route::get('inactive', ['middleware' => ['permission:manage-gymie|manage-members|view-member'], 'uses' => 'MembersController@inactive']);
@@ -242,10 +238,5 @@ Route::group(['prefix' => 'user/permission', 'middleware' => ['auth', 'role:Gymi
     Route::get('{id}/edit', 'AclController@editPermission');
     Route::post('{id}/update', 'AclController@updatePermission');
     Route::post('{id}/delete', 'AclController@deletePermission');
-});
-
-//
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Gymie']], function () {   
-    Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
 

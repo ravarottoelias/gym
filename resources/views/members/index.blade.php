@@ -98,15 +98,14 @@
 
                                     <tbody>
                                     @foreach ($members as $member)
-                                        <?php
-                                        $subscriptions = $member->subscriptions;
-                                        $plansArray = array();
-                                        foreach ($subscriptions as $subscription) {
-                                            $plansArray[] = $subscription->plan->plan_name;
-                                        }
-                                        
+                                        @php
+                                            $subscriptions = $member->subscriptions;
+                                            $plansArray = array();
+                                            foreach ($subscriptions as $subscription) {
+                                                $plansArray[] = $subscription->plan->plan_name;
+                                            }
                                             $image = $member->getImageUrl('profile', 'thumb');
-                                        ?>
+                                        @endphp
                                         <tr>
                                             <td><a href="{{ action('MembersController@show',['id' => $member->id]) }}"><img src="{{ $image }}" height="40" width="40"/></a></td>
                                             <td><a href="{{ action('MembersController@show',['id' => $member->id]) }}">{{ $member->member_code}}</a></td>

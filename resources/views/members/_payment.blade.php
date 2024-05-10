@@ -29,7 +29,7 @@
 
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <?php $modes = Utilities::getAllPaymentModes() ?>
+                            @php $modes = Utilities::getAllPaymentModes() @endphp
                             {!! Form::label('mode', @trans('custom.mode')) !!}
                             {!! Form::select('mode', $modes, 1, ['class'=>'form-control selectpicker show-tick show-menu-arrow', 'id' => 'mode']) !!}
                         </div>

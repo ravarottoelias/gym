@@ -63,7 +63,7 @@
                                                     <label>&nbsp;</label>
                                                 </div>
                                             </div>
-                                            <img class="AutoFitResponsive" src="{{ $member->getImageUrl('profile', null) }}"/>
+                                            <img class="AutoFitResponsive" src="{{ $member->getImageUrl('profile', 'thumb') }}"/>
                                         </div>
 
 

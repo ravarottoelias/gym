@@ -7,6 +7,7 @@ use App\Setting;
 use Carbon\Carbon;
 use App\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Utilities
 {
@@ -21,7 +22,7 @@ class Utilities
     // Get Setting
     public static function getSetting($key)
     {
-        $settingValue = Setting::where('key', '=', $key)->pluck('value');
+        $settingValue = Setting::where('key', '=', $key)->pluck('value')->first();
 
         return $settingValue;
     }
@@ -397,19 +398,19 @@ class Utilities
                 return 'Cheque';
                 break;
             case \constPaymentMode::Cash:
-                return 'Cash';
+                return 'Efectivo';
                 break;
             case \constPaymentMode::Transfer:
-                return 'Transfer';
+                return 'Transferencia';
                 break;
             case \constPaymentMode::Debit:
-                return 'Debit';
+                return 'Débito';
                 break;
             case \constPaymentMode::Credit:
-                return 'Credit';
+                return 'Crédito';
                 break;
             default:
-                return 'Cash';
+                return 'Efectivo';
                 break;
         }
     }
@@ -419,10 +420,10 @@ class Utilities
     {
         return [
             \constPaymentMode::Cheque   => 'Cheque',
-            \constPaymentMode::Cash     => 'Cash',
-            \constPaymentMode::Transfer => 'Transfer',
-            \constPaymentMode::Debit    => 'Debit',
-            \constPaymentMode::Credit   => 'Credit',
+            \constPaymentMode::Cash     => 'Efectivo',
+            \constPaymentMode::Transfer => 'Transferencia',
+            \constPaymentMode::Debit    => 'Débito',
+            \constPaymentMode::Credit   => 'Crédito',
         ];  
     }
 
@@ -470,7 +471,7 @@ class Utilities
     {
         return [
             '0' => 'Estudiante', 
-            '1' => 'Ama de casa',
+            '1' => 'Desocupado',
             '2' => 'Trabajador cuenta propia',
             '3' => 'Profesional',
             '4' => 'Freelancer',
@@ -560,19 +561,39 @@ class Utilities
     /**
      *File Upload.
      **/
-    public static function uploadFile(Request $request, $prefix, $recordId, $upload_field, $upload_path)
-    {
-        if ($request->hasFile($upload_field)) {
-            $file = $request->file($upload_field);
+    // public static function uploadFile(Request $request, $prefix, $recordId, $upload_field, $upload_path)
+    // {
+    //     if ($request->hasFile($upload_field)) {
+    //         $file = $request->file($upload_field);
+    //         if ($file->isValid()) {
+    //             Storage::disk('media_app')->putFile('avatars', $request->file($upload_field));
+    //             File::delete(public_path('assets/img/gym/gym_logo.jpg'));
+    //             $fileName = 'gym_logo.jpg';
+    //             $destinationPath = public_path($upload_path);
+    //             $request->file($upload_field)->move($destinationPath, $fileName);
+    //             dd($destinationPath);
+    //             Image::make($destinationPath.'/'.$fileName)->resize(600, null, function ($constraint) {
+    //                 $constraint->aspectRatio();
+    //             })->save();
+    //         }
+    //     }
+    // }
 
+    /**
+     * Subir archivo al storage. Redimensionar imagen
+     *
+     * @param Request $request
+     * @param string $uploadField campo donde se encuentra la imagen
+     * @param string $uploadDisk disco del storage
+     * @param string $uploadFolder path o directorio a subir el archivo
+     * @return string path al archivo almacenado
+     */
+    public static function uploadFile(Request $request, $uploadField, $uploadDisk = 'local', $uploadFolder = 'media')
+    {
+        if ($request->hasFile($uploadField)) {
+            $file = $request->file($uploadField);
             if ($file->isValid()) {
-                File::delete(public_path('assets/img/gym/gym_logo.jpg'));
-                $fileName = 'gym_logo.jpg';
-                $destinationPath = public_path($upload_path);
-                $request->file($upload_field)->move($destinationPath, $fileName);
-                Image::make($destinationPath.'/'.$fileName)->resize(600, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save();
+                return Storage::disk($uploadDisk)->putFile($uploadFolder, $request->file($uploadField));                
             }
         }
     }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SettingsController extends Controller
 {
@@ -34,8 +36,11 @@ class SettingsController extends Controller
         // Update All Settings
         foreach ($settings as $key => $value) {
             if ($key == 'gym_logo') {
-                \Utilities::uploadFile($request, '', $key, 'gym_logo', \constPaths::GymLogo); // Upload File
-                $value = $key.'.jpg'; // Image Name For DB
+                try{
+                    $value = \Utilities::uploadFile($request, $key, 'public');
+                } catch(Exception $ex){
+                    Log::error("Error al subir imagen.", $ex);
+                }
             }
 
             Setting::where('key', '=', $key)->update(['value' => $value]);

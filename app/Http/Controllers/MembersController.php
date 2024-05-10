@@ -165,7 +165,7 @@ class MembersController extends Controller
             $member->save();
 
             if ($request->hasFile('photo')) {
-                $member->addMedia($request->file('photo'))->usingFileName('profile_'.$member->id.".".$request->photo->getClientOriginalExtension())->toCollection('profile', 'media_profile');
+                $member->addMedia($request->file('photo'))->usingFileName('profile_'.$member->id.".".$request->photo->getClientOriginalExtension())->toMediaCollection('profile', 'media_profile');
             }
 
 
@@ -375,7 +375,7 @@ class MembersController extends Controller
         $member->update($request->all());
 
         if ($request->hasFile('photo')) {
-            $member->addMedia($request->file('photo'))->usingFileName('profile_'.$member->id.".".$request->photo->getClientOriginalExtension())->toCollection('profile', 'media_profile');
+            $member->addMedia($request->file('photo'))->usingFileName('profile_'.$member->id.".".$request->photo->getClientOriginalExtension())->toMediaCollection('profile', 'public');
         }
 
         $member->updatedBy()->associate(Auth::user());
@@ -415,7 +415,9 @@ class MembersController extends Controller
 
         $member->delete();
 
-        return back();
+        flash()->success('El registro fue borrado exitosamente.');
+
+        return redirect()->route('members_index');
     }
 
     public function transfer($id, Request $request)
