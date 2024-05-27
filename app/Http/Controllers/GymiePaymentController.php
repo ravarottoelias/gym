@@ -113,7 +113,7 @@ class GymiePaymentController extends Controller
         }
 
         // Obtain the secret key for the user/application from Mercadopago developers site
-        $secret = "your_secret_key_here";
+        $secret = config('services.mercadopago.notification_token');
 
         // Generate the manifest string
         $manifest = "id:$dataID;request-id:$xRequestId;ts:$ts;";
@@ -122,9 +122,11 @@ class GymiePaymentController extends Controller
         $sha = hash_hmac('sha256', $manifest, $secret);
         if ($sha === $hash) {
             // HMAC verification passed
+            Log::info("HMAC verification passed");
             echo "HMAC verification passed";
         } else {
             // HMAC verification failed
+            Log::info("HMAC verification failed");
             echo "HMAC verification failed";
         }
 
