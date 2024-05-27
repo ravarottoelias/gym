@@ -17,7 +17,7 @@ class GymiePaymentController extends Controller
 
     public function __construct(MercadoPagoService $mpService)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->mpService = $mpService;
     }
 
