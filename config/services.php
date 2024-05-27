@@ -35,4 +35,10 @@ return [
         'secret' => '',
     ],
 
+    'mercadopago' => [
+        'key' => env('MERCADOPAGO_PUBLIC_KEY'),
+        'token' => env('MERCADOPAGO_ACCESS_TOKEN'),
+        'api_url' => 'https://api.mercadopago.com/v1'
+    ],
+
 ];

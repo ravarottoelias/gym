@@ -2,7 +2,7 @@
     use Carbon\Carbon;
    $sum = App\PaymentDetail::whereMonth('created_at','=',Carbon::today()->month)->sum('payment_amount');
 ?>
-<div class="panel bg-green-400">
+<div class="panel panel-indicator bg-green-400">
     <div class="panel-body padding-15-20">
         <div class="clearfix">
             <div class="pull-left">

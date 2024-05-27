@@ -1,7 +1,7 @@
 <?php
 $count = App\Member::where('status',0)->count();
 ?>
-<div class="panel bg-amber-300">
+<div class="panel panel-indicator bg-amber-300">
     <div class="panel-body padding-15-20">
         <div class="clearfix">
             <div class="pull-left">

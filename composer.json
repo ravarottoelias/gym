@@ -21,7 +21,11 @@
         "zizaco/entrust": "dev-master",
         "sentry/sentry-laravel": "^0.7.0",
         "sofa/eloquence": "5.5",
-        "fideloper/proxy": "^4.4"
+        "fideloper/proxy": "^4.4",
+        "bestmomo/laravel-email-confirmation": "dev-master",
+        "nyholm/psr7": "1.5",
+        "guzzlehttp/guzzle": "6.5",
+        "mercadopago/dx-php": "2.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.0",

@@ -3,7 +3,7 @@ use Carbon\Carbon;
 $count = App\Member::whereMonth('created_at','=',Carbon::today()->month)->count();
 ?>
 
-<div class="panel bg-teal-400">
+<div class="panel panel-indicator bg-teal-400">
     <div class="panel-body padding-15-20">
         <div class="clearfix">
             <div class="pull-left">

@@ -165,7 +165,7 @@ class MembersController extends Controller
             $member->save();
 
             if ($request->hasFile('photo')) {
-                $member->addMedia($request->file('photo'))->usingFileName('profile_'.$member->id.".".$request->photo->getClientOriginalExtension())->toMediaCollection('profile', 'media_profile');
+                $member->addMedia($request->file('photo'))->usingFileName('profile_'.$member->id.".".$request->photo->getClientOriginalExtension())->toMediaCollection('profile', 'public');
             }
 
 
@@ -338,6 +338,7 @@ class MembersController extends Controller
 
             return redirect(action('MembersController@show', ['id' => $member->id]));
         } catch (\Exception $e) {
+            dd($e);
             DB::rollback();
             flash()->error('Error while creating the member');
 

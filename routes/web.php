@@ -12,9 +12,10 @@
 */
 
 Auth::routes();
-
-// Log viewer route
-Route::get('logs', ['middleware' => ['auth', 'role:Gymie'], 'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index']);
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('test', 'GymiePaymentController@payment')->name('gymie_payments');
+Route::get('webhook', 'GymiePaymentController@webHookMp');
 
 //Data Migration
 Route::get('data/migration', ['middleware' => ['auth', 'role:Gymie'], 'uses' => 'DataMigrationController@migrate']);
@@ -55,7 +56,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['jwt.auth']], function () {
 });
 
 //dashboard
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'gymie.checkPayment']], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@index');
     Route::post('/dashboard/smsRequest', 'DashboardController@smsRequest');

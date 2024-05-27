@@ -55,5 +55,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
+        'gymie.checkPayment' => \App\Http\Middleware\CheckGymiePayment::class,
     ];
 }

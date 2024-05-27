@@ -9,7 +9,7 @@
     <meta content="" name="author"/>
 
     <title>Gymie</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- BEGIN CORE FRAMEWORK -->
     <link href="{{ URL::asset('assets/plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet"/>
@@ -75,7 +75,12 @@
                     <span class="color-grey-400">{{Utilities::getGreeting()}},</span><br/>
                     <a>{{Auth::user()->name}}</a>
                 </div>
-                <a href="{{url('auth/logout')}}" class="button"><i class="ion-log-out"></i></a>
+                <form id="logout-form" class="d-none" action="{{ route('logout') }}" method="POST">
+                    {{ csrf_field() }}
+                </form>
+                <a href="#" class="button" onclick="event.preventDefault();document.getElementById('logout-form').submit()">
+					<i class="ion-log-out"></i>
+                </a>
             </div>
             <!-- END RPOFILE -->
             

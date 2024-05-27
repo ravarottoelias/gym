@@ -1,7 +1,7 @@
 <?php
 $count = App\Subscription::where('status',0)->count();
 ?>
-<div class="panel bg-grey-500">
+<div class="panel panel-indicator bg-grey-500">
     <div class="panel-body padding-15-20">
         <div class="clearfix">
             <div class="pull-left">

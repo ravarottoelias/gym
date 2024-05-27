@@ -49,7 +49,7 @@ return [
     |
      */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URL', 'http://localhost') ,
 
     /*
     |--------------------------------------------------------------------------
@@ -149,7 +149,7 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
-        //Illuminate\Notifications\NotificationServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
@@ -231,7 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        //'Notification' => Illuminate\Support\Facades\Notification::class,
+        'Notification' => Illuminate\Support\Facades\Notification::class,
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
