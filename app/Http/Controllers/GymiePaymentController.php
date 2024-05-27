@@ -87,8 +87,8 @@ class GymiePaymentController extends Controller
         $queryParams = $_GET;
 
         // Extract the "data.id" from the query params
-        $dataID = isset($request->data['id']) 
-            ? 'id:'.$request->data['id'].';' 
+        $dataID = isset($request->id) 
+            ? 'id:'.$request->id.';' 
             : '';
         Log::info("data.id: " . $dataID);
 
