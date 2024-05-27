@@ -87,9 +87,7 @@ class GymiePaymentController extends Controller
         $queryParams = $_GET;
 
         // Extract the "data.id" from the query params
-        $dataID = isset($request->id) 
-            ? 'id:'.$request->id.';' 
-            : '';
+        $dataID = isset($request->id) ? $request->id : '';
         Log::info("data.id: " . $dataID);
 
         // Separating the x-signature into parts
@@ -118,7 +116,7 @@ class GymiePaymentController extends Controller
         $secret = config('services.mercadopago.notification_token');
 
         // Generate the manifest string
-        $manifest = $dataID."request-id:$xRequestId;ts:$ts;";
+        $manifest = "id:$dataID;request-id:$xRequestId;ts:$ts;";
 
         // Create an HMAC signature defining the hash type and the key as a byte array
         $sha = hash_hmac('sha256', $manifest, $secret);
