@@ -122,7 +122,9 @@ class GymiePaymentController extends Controller
         $sha = hash_hmac('sha256', $manifest, $secret);
         Log::info("SHA: " . $sha);
         Log::info("HASH: " . $hash);
-        Log::info("HMAC verification passed");
+        Log::info("HASH: " . $hash);
+        Log::info("TS: " . $ts);
+        Log::info("manifest: " . $manifest);
         if ($sha === $hash) {
             // HMAC verification passed
             Log::info("HMAC verification passed");
