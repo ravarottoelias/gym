@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('test', 'GymiePaymentController@payment')->name('gymie_payments');
-Route::post('webhook', 'GymiePaymentController@webHookMp');
+Route::get('webhook', 'GymiePaymentController@webHookMp');
 
 //Data Migration
 Route::get('data/migration', ['middleware' => ['auth', 'role:Gymie'], 'uses' => 'DataMigrationController@migrate']);
