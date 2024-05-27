@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\GymiePayment;
 use Auth;
 use JavaScript;
+use App\GymiePayment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use App\Services\MercadoPagoService;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
+use App\Services\MercadoPagoService;
 
 class GymiePaymentController extends Controller
 {
@@ -87,8 +87,8 @@ class GymiePaymentController extends Controller
         $queryParams = $_GET;
 
         // Extract the "data.id" from the query params
-        $dataID = isset($queryParams['data.id']) 
-            ? 'id:'.$queryParams['data.id'].';' 
+        $dataID = isset($request->data['id']) 
+            ? 'id:'.$request->data['id'].';' 
             : '';
         Log::info("data.id: " . $dataID);
 
