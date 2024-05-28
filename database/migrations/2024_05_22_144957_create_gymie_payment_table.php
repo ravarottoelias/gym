@@ -14,11 +14,13 @@ class CreateGymiePaymentTable extends Migration
     public function up()
     {
         Schema::create('gymie_payments', function (Blueprint $table) {
-            $table->increments('payment_identifier');
+            $table->string('payment_identifier')->primary();
             $table->string('status');
             $table->string('period');
             $table->string('gateway');
             $table->text('payload');
+            $table->text('notification_payload');
+            $table->boolean('notification_verified')->nullable();
             $table->timestamps();
         });
     }

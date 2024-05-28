@@ -75,7 +75,7 @@
                                                 <td>{{ $payment->gateway }}</td>
                                                 <td>
                                                     <a href="#" data-toggle="modal" data-target="#{{ $payment->payment_identifier }}">
-                                                        <code>{{ str_limit(json_decode($payment->payload), $limit = 100, $end = '...') }}</code>
+                                                        <code>{{ str_limit($payment->payload, $limit = 35, $end = '...') }}</code>
                                                     </a>
                                                     <!-- Modal payload -->
                                                     <div class="modal fade" id="{{ $payment->payment_identifier }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -87,7 +87,7 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <pre>
-                                                                        {{ json_decode($payment->payload) }}
+                                                                        {{ Helpers::json_beautify($payment->payload) }}
                                                                         </pre>
                                                                     </div>
                                                                 <div class="modal-footer">

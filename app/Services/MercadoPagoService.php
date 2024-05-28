@@ -20,10 +20,10 @@ class MercadoPagoService
 
 	/**Obtiene un pago por id        
 	 *
-	 * @param [type] $paymentId
-	 * @return void
+	 * @param string $paymentId
+	 * @return object
 	 */
-	public function getPayment($paymentId)
+	public function getPayment($paymentId) : object
 	{
 	
 		$client = new \GuzzleHttp\Client();
@@ -37,7 +37,7 @@ class MercadoPagoService
 			]
 		]);
 
-		return json_decode($response->getBody());
+		return json_decode($response->getBody(), false);
 	}
 
     
@@ -109,6 +109,7 @@ class MercadoPagoService
 			$item->id = $e['id'];
 			$item->title = $e['title'];
 			$item->quantity = $e['quantity'];
+			$item->description = $e['description'];
 			$item->unit_price = FormatterUtilities::formatPrice($e['unit_price']);
 			$items->push($item);
 		}
