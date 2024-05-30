@@ -51,7 +51,7 @@
                                 </div>
 
                                 @if(isset($user))
-                                    <?php $image = Auth::user()->getImageUrl(null, 'form'); ?>
+                                    @php $image = Auth::user()->getImageUrl('staff', 'form'); @endphp 
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             {!! Form::label('photo','Photo') !!}
@@ -97,10 +97,10 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <?php
-                                        $withoutGymie = App\Role::where('name', '!=', 'Gymie')->lists('name', 'id');
-                                        $withGymie = App\Role::lists('name', 'id');
-                                        ?>
+                                        @php
+                                        $withoutGymie = App\Role::where('name', '!=', 'Gymie')->pluck('name', 'id');
+                                        $withGymie = App\Role::pluck('name', 'id');
+                                        @endphp
                                         {!! Form::label('Role') !!}
                                         {!! Form::select('role_id',(Auth::User()->hasRole('Gymie') ? $withGymie : $withoutGymie),$user->roleUser->role_id,['class'=>'form-control selectpicker show-tick', 'id' => 'role_id']) !!}
                                     </div>

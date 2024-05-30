@@ -14,7 +14,6 @@
 Auth::routes();
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('test', 'GymiePaymentController@payment')->name('gymie_payments');
 Route::post('webhook', 'MercadoPagoController@webHookMp');
 
 //Data Migration
@@ -239,5 +238,11 @@ Route::group(['prefix' => 'user/permission', 'middleware' => ['auth', 'role:Gymi
     Route::get('{id}/edit', 'AclController@editPermission');
     Route::post('{id}/update', 'AclController@updatePermission');
     Route::post('{id}/delete', 'AclController@deletePermission');
+});
+
+//Gymie payments
+Route::group(['prefix' => 'account', 'middleware' => ['auth']], function () {
+    Route::get('payments', 'GymiePaymentController@payment')->name('gymie_payments');
+    Route::get('payments/{id}', 'GymiePaymentController@show')->name('gymie_payments_detail');
 });
 

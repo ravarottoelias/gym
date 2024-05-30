@@ -76,7 +76,7 @@ class AclController extends Controller
         $user->update();
         
         if ($request->hasFile('photo')) {
-            $user->addMedia($request->file('photo'))->usingFileName('staff_'.$user->id.".".$request->photo->getClientOriginalExtension())->toCollection('staff');
+            $user->addMedia($request->file('photo'))->usingFileName('staff_'.$user->id.".".$request->photo->getClientOriginalExtension())->toMediaCollection('staff', 'public');
         }
 
         $user->save();

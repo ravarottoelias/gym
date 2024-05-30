@@ -69,7 +69,7 @@
                     <?php  
                         $image = Auth::user()->profile_picture; 
                     ?>
-                    <img src="{{ Auth::user()->getImageUrl('profile', 'thumb') }}" class="img-circle" alt=""/>
+                    <img src="{{ Auth::user()->getImageUrl('staff', 'thumb') }}" class="img-circle" alt=""/>
                 </div>
                 <div class="info">
                     <span class="color-grey-400">{{Utilities::getGreeting()}},</span><br/>

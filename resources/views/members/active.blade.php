@@ -101,11 +101,10 @@
                                         foreach ($subscriptions as $subscription) {
                                             $plansArray[] = $subscription->plan->plan_name;
                                         }
-                                        $images = $member->getMedia('profile');
-                                        $profileImage = ($images->isEmpty() ? 'https://placeholdit.imgix.net/~text?txtsize=18&txt=NA&w=50&h=50' : url($images[0]->getUrl('thumb')));
+                                        $image = $member->getImageUrl('profile', 'thumb');
                                         ?>
                                         <tr>
-                                            <td><a href="{{ action('MembersController@show',['id' => $member->id]) }}"><img src="{{ $profileImage }}"/></a></td>
+                                            <td><a href="{{ action('MembersController@show',['id' => $member->id]) }}"><img src="{{ $image }}" height="40" width="40"/></a></td>
                                             <td><a href="{{ action('MembersController@show',['id' => $member->id]) }}">{{ $member->member_code}}</a></td>
                                             <td><a href="{{ action('MembersController@show',['id' => $member->id]) }}">{{ $member->name}}</a></td>
                                             <td>{{ $member->contact}}</td>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use JavaScript;
 use App\GymiePayment;
+use Illuminate\View\View;
 use Illuminate\Support\Carbon;
 use App\Services\MercadoPagoService;
 
@@ -70,5 +71,15 @@ class GymiePaymentController extends Controller
                 'items' => $items,
                 'payer' => $payer
             ];
+    }
+
+    function show(string $id) : View {
+
+        $payment = $this->mpService->getPayment($id);
+        
+        $payment->date_created =  Carbon::parse($payment->date_created)->format('d/m/Y H:m:s');
+
+
+        return view('mp-payments.show', compact('payment'));
     }
 }

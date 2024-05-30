@@ -69,7 +69,7 @@
                                     <tbody>
                                         @foreach ($gymiePayments as $payment)
                                             <tr>
-                                                <td>{{ $payment->payment_identifier }}</td>
+                                                <td><a href="{{ route('gymie_payments_detail', $payment->payment_identifier) }}">{{ $payment->payment_identifier }}</a></td>
                                                 <td>{{ $payment->period }}</td>
                                                 <td>{{ $payment->status }}</td>
                                                 <td>{{ $payment->gateway }}</td>

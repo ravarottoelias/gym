@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use MercadoPago;
-use App\Helpers\Utils;
 use App\Utils\FormatterUtilities;
 
 
@@ -41,43 +40,6 @@ class MercadoPagoService
 	}
 
     
-    public function getPaymentById($payment_id)
-    {
-		$AUTHORIZATION = "authorization: Bearer " . $this->token;
-		$CAHCE_CONTROL = "cache-control: no-cache";
-    	$API_MP = $this->apiUrl;
-    	$URL = "$API_MP/payments/$payment_id";
-    	$METHOD = "GET";
-        $curl = curl_init();
-
-		curl_setopt_array($curl, array(
-		  CURLOPT_URL => $URL,
-		  CURLOPT_RETURNTRANSFER => true,
-		  CURLOPT_ENCODING => "",
-		  CURLOPT_MAXREDIRS => 10,
-		  CURLOPT_TIMEOUT => 30,
-		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		  CURLOPT_CUSTOMREQUEST => $METHOD,
-		  CURLOPT_HTTPHEADER => array(
-			$AUTHORIZATION,
-		    $CAHCE_CONTROL
-		  ),
-		));
-
-		$response = curl_exec($curl);
-		$error = curl_error($curl);
-		curl_close($curl);
-
-		$array = json_decode($response, true);
-		$array['additional_info']['items'][0]['unit_price'] = FormatterUtilities::formatPrice($array['additional_info']['items'][0]['unit_price']);
-
-		if ($error) {
-		 throw $error;
-		} else {
-		  return $array;
-		}
-    }
-
 	/**
 	 * Crea una preferencia de pago
 	 *
