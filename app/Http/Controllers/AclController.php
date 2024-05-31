@@ -170,15 +170,16 @@ class AclController extends Controller
         try {
             //Updating Role
             $role = Role::findOrFail($id);
-
+            
             $role->update(['name' => $request->name,
-                           'display_name' => $request->display_name,
-                           'description' => $request->description,
-                          ]);
+            'display_name' => $request->display_name,
+            'description' => $request->description,
+        ]);
+        
+        //Updating permissions for the role
+        $DBpermissions = PermissionRole::where('role_id', $id)->select('permission_id')->pluck('permission_id');
+        $ClientPermissions = collect($request->permissions);
 
-            //Updating permissions for the role
-            $DBpermissions = PermissionRole::where('role_id', $id)->select('permission_id')->lists('permission_id');
-            $ClientPermissions = collect($request->permissions);
 
             $addPermissions = $ClientPermissions->diff($DBpermissions);
             $deletePermissions = $DBpermissions->diff($ClientPermissions);
