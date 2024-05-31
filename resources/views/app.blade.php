@@ -8,6 +8,24 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
 
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <title>Gymie</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- BEGIN CORE FRAMEWORK -->
@@ -66,14 +84,11 @@
             <!-- BEGIN RPOFILE -->
             <div class="nav-profile">
                 <div class="thumb">
-                    <?php  
-                        $image = Auth::user()->profile_picture; 
-                    ?>
-                    <img src="{{ Auth::user()->getImageUrl('staff', 'thumb') }}" class="img-circle" alt=""/>
+                    <a href="{{ route('gymie_payments') }}"><img src="{{ Auth::user()->getImageUrl('staff', 'thumb') }}" class="img-circle" alt=""/></a>
                 </div>
                 <div class="info">
                     <span class="color-grey-400">{{Utilities::getGreeting()}},</span><br/>
-                    <a>{{Auth::user()->name}}</a>
+                    <a href="{{ route('gymie_payments') }}">{{Auth::user()->name}}</a>
                 </div>
                 <form id="logout-form" class="d-none" action="{{ route('logout') }}" method="POST">
                     {{ csrf_field() }}
