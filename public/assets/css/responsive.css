@@ -223,6 +223,10 @@ header .navbar {
 }
 }
 @media screen and (max-width: 480px) {
+.page-head .total-count{
+	display: none;
+}
+
 .flot-placeholder {
 	height: 300px !important;
 }

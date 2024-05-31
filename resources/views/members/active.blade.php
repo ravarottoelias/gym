@@ -79,6 +79,7 @@
                             @if($members->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
+                                <div class="table-responsive">
                                 <table id="members" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -145,6 +146,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-xs-6">

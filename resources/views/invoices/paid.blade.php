@@ -76,6 +76,7 @@
                             @if($invoices->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
+                            <div class="table-responsive">
                                 <table id="invoices" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -145,6 +146,7 @@
                                     </div>
                                 </div>
 
+                            </div>
                         </div><!-- / Panel-Body -->
                         @endif
                     </div><!-- / Panel-no-Border -->

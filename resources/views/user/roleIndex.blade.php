@@ -18,6 +18,7 @@
                         <div class="panel-title bg-white no-border">
                         </div>
                         <div class="panel-body no-padding-top bg-white">
+                            <div class="table-responsive">
                             <table id="staffs" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -86,7 +87,7 @@
 
                                 </tbody>
                             </table>
-
+                            </div>
                         </div>
                     </div>
                 </div>

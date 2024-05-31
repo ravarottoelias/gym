@@ -56,6 +56,7 @@
                         </div>
                         <div class="panel-body no-padding-top bg-white">
                             <div class="row margin-top-15 margin-bottom-15">
+                                <div class="table-responsive">
                                 <table id="plans" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -100,6 +101,8 @@
                                             </tr>
                                         @endforeach     
                                     </tbody>
+                                </table>
+                                </div>
                             </div>
                         </div>
                     </div>

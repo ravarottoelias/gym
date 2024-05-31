@@ -45,7 +45,7 @@
                             @if($plans->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
-
+                            <div class="table-responsive">
                                 <table id="plans" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -111,7 +111,7 @@
 
 
                                 </table>
-
+                            </div>
                                 <!-- Pagination -->
                                 <div class="row">
                                     <div class="col-xs-6">

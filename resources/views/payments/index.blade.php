@@ -82,6 +82,7 @@
                             @if($payment_details->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
+                            <div class="table-responsive">
                                 <table id="payments" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -185,7 +186,7 @@
 
                                     </tbody>
                                 </table>
-
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <div class="gymie_paging_info">
