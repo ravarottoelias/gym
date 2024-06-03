@@ -17,7 +17,7 @@
             <div class="clearfix"></div>
 
             <div class="pull-left">
-                <div class="display-block color-green-50 font-weight-600">{{ @trans('custom.monthly_collection') }}</div>
+                <div class="display-block color-green-50 font-weight-600" title="Dinero recaudado en el mes en curso.">{{ @trans('custom.monthly_collection') }}</div>
             </div>
         </div>
     </div>

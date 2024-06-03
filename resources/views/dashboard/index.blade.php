@@ -13,7 +13,7 @@
                     @include('dashboard._index.totalMembers')
                 </div>
 
-                <!-- Registrations This Weeks -->
+                <!-- Registrations This Month -->
                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                     @include('dashboard._index.registeredThisMonth')
                 </div>

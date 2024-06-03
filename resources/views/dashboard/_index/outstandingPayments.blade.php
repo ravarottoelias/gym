@@ -16,7 +16,7 @@ $sum = App\Invoice::sum('pending_amount');
             <div class="clearfix"></div>
 
             <div class="pull-left">
-                <div class="display-block color-red-50 font-weight-600">{{ @trans('custom.pending_payments') }}</div>
+                <div class="display-block color-red-50 font-weight-600" title="Todos los pagos pendientes sin importar fecha de suscripción">{{ @trans('custom.pending_payments') }}</div>
             </div>
         </div>
     </div>

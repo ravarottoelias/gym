@@ -13,7 +13,7 @@
             <div class="clearfix"></div>
 
             <div class="pull-left">
-                <div class="display-block color-light-blue-50 font-weight-600">{{ @trans('custom.total_members') }}</div>
+                <div class="display-block color-light-blue-50 font-weight-600" title="Total de socios">{{ @trans('custom.total_members') }}</div>
             </div>
         </div>
     </div>

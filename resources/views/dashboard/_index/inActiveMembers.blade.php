@@ -15,7 +15,7 @@ $count = App\Member::where('status',0)->count();
             <div class="clearfix"></div>
 
             <div class="pull-left">
-                <div class="display-block color-amber-50 font-weight-600">{{ @trans('custom.inactive_members') }}</div>
+                <div class="display-block color-amber-50 font-weight-600" title="Todos los socios que se encuentran inactivos, sin importar fecha de suscripción.">{{ @trans('custom.inactive_members') }}</div>
             </div>
         </div>
     </div>

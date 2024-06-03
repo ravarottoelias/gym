@@ -15,7 +15,7 @@ $count = App\Subscription::where('status',0)->count();
             <div class="clearfix"></div>
 
             <div class="pull-left">
-                <div class="display-block color-grey-50 font-weight-600">{{ @trans('custom.membership_due') }}</div>
+                <div class="display-block color-grey-50 font-weight-600" title="Suscripciones expiradas o vencidas, sin importar fecha de suscripción.">{{ @trans('custom.membership_due') }}</div>
             </div>
         </div>
     </div>
