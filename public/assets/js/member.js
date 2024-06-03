@@ -32,10 +32,10 @@ var startDateValidators = {
 					// notEmpty: {
 					// 	message: 'The address is required and can\'t be empty'
 					// },
-					stringLength: {
-                        max: 200,
-                        message: 'It must be less than 200 characters'
-                    }
+					// stringLength: {
+                    //     max: 200,
+                    //     message: 'It must be less than 200 characters'
+                    // }
 				}
 			},
 			email: {
@@ -43,13 +43,13 @@ var startDateValidators = {
 					// notEmpty: {
 					// 	message: 'The email address is required and can\'t be empty'
 					// },
-					emailAddress: {
-						message: 'The input is not a valid email address'
-					},
-					stringLength: {
-                        max: 50,
-                        message: 'It must be less than 50 characters'
-                    }
+					// emailAddress: {
+					// 	message: 'The input is not a valid email address'
+					// },
+					// stringLength: {
+                    //     max: 50,
+                    //     message: 'It must be less than 50 characters'
+                    // }
 				}
 			},
 			DOB: {
@@ -82,10 +82,10 @@ var startDateValidators = {
 					// notEmpty: {
 					// 	message: 'The proof name is required and can\'t be empty'
 					// },
-					stringLength: {
-                        max: 50,
-                        message: 'It must be less than 50 characters'
-                    }
+					// stringLength: {
+                    //     max: 50,
+                    //     message: 'It must be less than 50 characters'
+                    // }
 				}
 			},
 			gender: {
@@ -118,10 +118,10 @@ var startDateValidators = {
 					// notEmpty: {
 					// 	message: 'The occupation is required and can\'t be empty'
 					// },
-					stringLength: {
-                        max: 50,
-                        message: 'It must be less than 50 characters'
-                    }
+					// stringLength: {
+                    //     max: 50,
+                    //     message: 'It must be less than 50 characters'
+                    // }
 				}
 			},
 			aim: {
@@ -129,10 +129,10 @@ var startDateValidators = {
 					// notEmpty: {
 					// 	message: 'The aim is required and can\'t be empty'
 					// },
-					stringLength: {
-                        max: 50,
-                        message: 'It must be less than 50 characters'
-                    }
+					// stringLength: {
+                    //     max: 50,
+                    //     message: 'It must be less than 50 characters'
+                    // }
 				}
 			},
 			source: {
@@ -238,14 +238,14 @@ var startDateValidators = {
 					// notEmpty: {
 					// 	message: 'The contact is required and can\'t be empty'
 					// },
-					regexp: {
-						regexp: /^[0-9\.]+$/,
-						message: 'The input is not a valid number'
-					},
-					stringLength: {
-                        max: 10,
-                        message: 'It must be less than 10 characters'
-                    }
+					// regexp: {
+					// 	regexp: /^[0-9\.]+$/,
+					// 	message: 'The input is not a valid number'
+					// },
+					// stringLength: {
+                    //     max: 10,
+                    //     message: 'It must be less than 10 characters'
+                    // }
 				}
 			},
 			'plan[0].start_date' : startDateValidators								          
