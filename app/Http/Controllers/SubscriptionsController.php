@@ -11,6 +11,7 @@ use App\Setting;
 use Carbon\Carbon;
 use App\SmsTrigger;
 use App\ChequeDetail;
+use App\Http\Requests\subscriptions\UpdateSubscriptionRequest;
 use App\Subscription;
 use App\InvoiceDetail;
 use App\PaymentDetail;
@@ -269,17 +270,17 @@ class SubscriptionsController extends Controller
         $diff = Carbon::today()->diffInDays($subscription->end_date);
         //$gymieDiff = $diff->format('Y-m-d');
         $gymieDiff = $subscription->end_date->addDays($diff);
-
+        
         JavaScript::put([
-          'gymieToday' => Carbon::today()->format('Y-m-d'),
-          'gymieEndDate' => $subscription->end_date->format('Y-m-d'),
-          'gymieDiff' => $gymieDiff->format('Y-m-d'),
-      ]);
+            'gymieToday' => Carbon::today()->format('Y-m-d'),
+            'gymieEndDate' => $subscription->end_date->format('Y-m-d'),
+            'gymieDiff' => $gymieDiff->format('Y-m-d'),
+        ]);
 
         return view('subscriptions.edit', compact('subscription'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, UpdateSubscriptionRequest $request)
     {
         $subscription = Subscription::findOrFail($id);
 

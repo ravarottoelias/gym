@@ -11,16 +11,18 @@
                             <div class="panel-head font-size-20">{{ @trans('custom.enter_details_subscription') }}</div>
                         </div>
 
-                        {!! Form::model($subscription, ['method' => 'POST','action' => ['SubscriptionsController@update',$subscription->id],'id'=>'subscriptionsform']) !!}
+                        {!! Form::model($subscription, ['method' => 'POST','action' => ['SubscriptionsController@update',$subscription->id],'id'=>'subscriptionsEditform']) !!}
                         <div class="panel-body">
+
+                            @include('_validation-errors')
 
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <?php $member_code = App\Member::where('status', '=', '1')->array_pluck($array, 'value')('member_code', 'id'); ?>
+                                        {{-- @php $member_code = App\Member::where('status', '=', '1')->array_pluck($array, 'value')('member_code', 'id'); @endphp --}}
                                         {!! Form::label('member_id','Member Code') !!}
 
-                                        {!! Form::text('member_display', $subscription->member->member_code,['class'=> 'form-control', 'id' => 'member_display','readonly' => 'readonly']) !!}
+                                        {!! Form::text('member_display', $subscription->member->member_code . ' - ' . $subscription->member->name ,['class'=> 'form-control', 'id' => 'member_display','readonly' => 'readonly']) !!}
                                         {!! Form::hidden('member_id', $subscription->member_id) !!}
 
                                     </div>
@@ -45,7 +47,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         {!! Form::label('end_date','End Date') !!}
-                                        {!! Form::text('end_date',$subscription->end_date->format('Y-m-d'),['class'=>'form-control datepicker-enddate', 'id' => 'end_date']) !!}
+                                        {!! Form::text('end_date',$subscription->end_date->format('Y-m-d'),['class'=>'form-control datepicker-default', 'id' => 'end_date']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +72,7 @@
 
 @stop
 @section('footer_scripts')
-    <script src="{{ URL::asset('assets/js/subscription.js') }}" type="text/javascript"></script>
+    
 @stop
 @section('footer_script_init')
     <script type="text/javascript">
