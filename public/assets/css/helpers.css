@@ -365,6 +365,12 @@
 .margin-top-40 {
 	margin-top: 40px !important;
 }
+.margin-top-50 {
+	margin-top: 50px !important;
+}
+.margin-top-80 {
+	margin-top: 80px !important;
+}
 
 /* bottom */
 
@@ -514,6 +520,8 @@
 }
 .padding-top-40 {
 	padding-top: 40px !important;
+}.padding-top-80 {
+	padding-top: 80px !important;
 }
 
 /* bottom */

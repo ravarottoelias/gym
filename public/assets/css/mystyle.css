@@ -157,3 +157,8 @@ span.show-data {
 .panel-indicator{
 	min-height: 98px;
 }
+
+/*Validation error messages*/
+.validation-error-section{
+	margin-left: 240px;
+}

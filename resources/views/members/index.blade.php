@@ -138,9 +138,9 @@
                                                         <li>
                                                             @permission(['manage-gymie','manage-members','delete-member'])
                                                             <a href="#" class="delete-record" data-delete-url="{{ url('members/'.$member->id.'/archive') }}"
-                                                               data-record-id="{{$member->id}}">Delete member</a>
+                                                               data-record-id="{{$member->id}}" data-csrf-token="{{ csrf_token() }}">Delete member</a>
                                                             @endpermission
-                                                        </li>
+                                                        </li> 
                                                     </ul>
                                                 </div>
 
