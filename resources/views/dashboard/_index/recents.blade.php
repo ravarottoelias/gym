@@ -1,7 +1,7 @@
 <?php
     use Carbon\Carbon;
 ?>
-<div class="table-responsive {!! (! $recents->isEmpty() ? 'panel-scroll' : '')  !!}">
+<div class="table-responsive panel-scroll" style="width: auto; height: 320px;">
     <table class="table table-hover table-condensed">
         @forelse($recents as $recent)
             <tr>

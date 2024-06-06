@@ -162,3 +162,15 @@ span.show-data {
 .validation-error-section{
 	margin-left: 240px;
 }
+
+/* Scroll bar */
+.panel-scroll {
+	scrollbar-width: thin; 
+	overflow-y: scroll;
+	scrollbar-color: #7a7777 #fff;
+}
+
+/*Sidebar left*/
+.fixed-leftside .sidebar:hover .fixed-leftside{
+	overflow-y: hidden;
+}

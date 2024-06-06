@@ -1,4 +1,4 @@
-<div class="table-responsive {!! (! $enquiries->isEmpty() ? 'panel-scroll' : '')  !!}">
+<div class="table-responsive panel-scroll" style="width: auto; height: 320px;">
     <table class="table table-hover table-condensed">
         @forelse($enquiries as $enquiry)
             <tr>

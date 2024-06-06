@@ -17,13 +17,13 @@
                             <div class="pull-right no-margin">
                                 @permission(['manage-gymie','manage-members','edit-member'])
                                 <a class="btn btn-primary" href="{{ action('MembersController@edit',['id' => $member->id]) }}">
-                                    <span>Edit</span>
+                                    <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ @trans('custom.edit') }}</span>
                                 </a>
                                 @endpermission
 
                                 @permission(['manage-gymie','manage-members','delete-member'])
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{$member->id}}" data-id="{{$member->id}}">
-                                    <span>Delete</span>
+                                    <span><i class="fa fa-trash" aria-hidden="true"></i> {{ @trans('custom.delete') }}</span>
                                 </button>
                                 @endpermission
 
@@ -78,7 +78,7 @@
 
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Name</label>
+                                                    <label>{{ @trans('custom.member_name') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{$member->name}}</span>
@@ -89,7 +89,7 @@
 
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Member Code</label>
+                                                    <label>{{ @trans('custom.member_code') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{$member->member_code}}</span>
@@ -99,7 +99,7 @@
 
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Date Of Birth</label>
+                                                    <label>{{ @trans('custom.dob') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{$member->DOB}}</span>
@@ -108,7 +108,7 @@
                                             <hr class="margin-top-0 margin-bottom-10">
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Gender</label>
+                                                    <label>{{ @trans('custom.gender') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{Utilities::getGender($member->gender)}}</span>
@@ -118,7 +118,7 @@
 
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Contact Number</label>
+                                                    <label>{{ @trans('custom.phone') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{$member->contact}}</span>
@@ -138,7 +138,7 @@
                                             <hr class="margin-top-0 margin-bottom-10">
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Member Since</label>
+                                                    <label>{{ @trans('custom.member_since') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{$member->created_at->toFormattedDateString()}}</span>
@@ -147,7 +147,7 @@
                                             <hr class="margin-top-0 margin-bottom-10">
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label>Emergency Contact</label>
+                                                    <label>{{ @trans('custom.emergency_contact') }}</label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <span class="show-data">{{$member->emergency_contact}}</span>
@@ -165,22 +165,23 @@
                                             <div class="panel bg-grey-50">
                                                 <div class="panel-title bg-transparent">
                                                     <div class="panel-head"><strong><span class="fa-stack">
-							  <i class="fa fa-circle-thin fa-stack-2x"></i>
-							  <i class="fa fa-ellipsis-h fa-stack-1x"></i>
-							</span> Additional Details</strong></div>
+                                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                        <i class="fa fa-ellipsis-h fa-stack-1x"></i>
+                                                        </span> {{ @trans('custom.additional_details') }}</strong>
+                                                    </div>
                                                 </div>
                                                 <div class="panel-body">
 
                                                     <div class="row">
-                                                        <?php
-                                                        $subscriptions = $member->subscriptions;
-                                                        $plansArray = array();
-                                                        foreach ($subscriptions as $subscription) {
-                                                            $plansArray[] = $subscription->plan->plan_name;
-                                                        }
-                                                        ?>
+                                                        @php
+                                                            $subscriptions = $member->subscriptions;
+                                                            $plansArray = array();
+                                                            foreach ($subscriptions as $subscription) {
+                                                                $plansArray[] = $subscription->plan->plan_name;
+                                                            }
+                                                        @endphp
                                                         <div class="col-sm-4">
-                                                            <label>Plan name</label>
+                                                            <label>{{ @trans('custom.plan_name') }}</label>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <span class="show-data">{{implode(",",$plansArray)}}</span>
@@ -190,7 +191,7 @@
 
                                                     <div class="row">
                                                         <div class="col-sm-4">
-                                                            <label>Status</label>
+                                                            <label>{{ @trans('custom.status') }}</label>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <span class="show-data">{{Utilities::getStatusValue ($member->status)}}</span>
@@ -217,7 +218,7 @@
                                                     <hr class="margin-top-0 margin-bottom-10">
                                                     <div class="row">
                                                         <div class="col-sm-4">
-                                                            <label>Address</label>
+                                                            <label>{{ @trans('custom.address') }}</label>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <span class="show-data">{{$member->address}}</span>
@@ -226,7 +227,16 @@
                                                     <hr class="margin-top-0 margin-bottom-10">
                                                     <div class="row">
                                                         <div class="col-sm-4">
-                                                            <label>Health Issues</label>
+                                                            <label>{{ @trans('custom.occupation') }}</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <span class="show-data">{{@trans('custom.'.Utilities::getOccupation($member->occupation))}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="margin-top-0 margin-bottom-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>{{ @trans('custom.health_issues') }}</label>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <span class="show-data">{{$member->health_issues}}</span>
@@ -254,15 +264,16 @@
                             <div class="panel-head font-size-20">{{ @trans('custom.member_history_subscription') }}</div>
                         </div>
                         <div class="panel-body">
+                            <div class="table-responsive">
                             <table id="_payment" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Invoice Number</th>
-                                    <th>Plan Name</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                    <th>Status</th>
-                                    <th>Payment Status</th>
+                                    <th>{{ @trans('custom.invoice_number') }}</th>
+                                    <th>{{ @trans('custom.plan_name') }}</th>
+                                    <th>{{ @trans('custom.start_date') }}</th>
+                                    <th>{{ @trans('custom.end_date') }}</th>
+                                    <th>{{ @trans('custom.status') }}</th>
+                                    <th>{{ @trans('custom.payment_status') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -282,6 +293,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>

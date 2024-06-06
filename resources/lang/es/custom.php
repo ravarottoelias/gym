@@ -85,6 +85,7 @@ return [
     'outstanding' => 'Vencidas',
     'services' => 'Servicios',
     'charges' => 'Cargos',
+    'additional_details' => 'Info adicional',
 
     /**
      * Filters
@@ -96,6 +97,7 @@ return [
     'plan_name' => 'Nombre plan',
     'member_code' => 'Codigo de socio',
     'member_name' => 'Nombre socio',
+    'member_since' => 'Socio desde',
     'start_date' => 'Fecha inicio',
     'end_date' => 'Fecha fin',
     'status' => 'Estado',
@@ -118,6 +120,7 @@ return [
     'expense_name' => 'Nombre expensa',
     'expense_category' => 'Categoria expensa',
     'payment_date' => 'Fecha de pago',
+    'payment_status' => 'Estado del pago',
     'on' => 'en',
     'status' => 'Estado',
     'actions' => 'Acciones',
@@ -260,4 +263,14 @@ return [
     'add' => 'Agregar',
     'add_new' => 'Agregar nuevo',
     'pay' => 'Pagar',
+    'edit' => 'Editar',
+    'delete' => 'Eliminar',
+
+    /**
+     *  Occupations
+     */
+    'Others' => 'Otros',
+    'Professional' => 'Profesional',
+    'Housewife' => 'Ama de casa',
+    'Student' => 'Ama de casa',
 ];

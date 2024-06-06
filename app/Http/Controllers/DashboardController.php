@@ -54,6 +54,7 @@ class DashboardController extends Controller
         $bouncedCheques = ChequeDetail::where('status', \constChequeStatus::Bounced)->get();
         $bouncedChequesCount = $bouncedCheques->count();
         $membersPerPlan = json_decode(\Utilities::membersPerPlan());
+        dd($outstandings);
 
         return view('dashboard.index', compact('expirings', 'allExpired', 'birthdays', 'recents', 'enquiries', 'reminders', 'dues', 'outstandings', 'smsRequestSetting', 'smslogs', 'expiringCount', 'expiredCount', 'birthdayCount', 'reminderCount', 'recievedCheques', 'recievedChequesCount', 'depositedCheques', 'depositedChequesCount', 'bouncedCheques', 'bouncedChequesCount', 'membersPerPlan'));
     }

@@ -49,18 +49,18 @@
 	});
 	
 	//Panel Scroll
-	$(".panel-scroll").slimscroll({
-		alwaysVisible: false,
-		size: "5px",
-		height: "320px"
-	}).css("width", "100%");
+	// $(".panel-scroll").slimscroll({
+	// 	alwaysVisible: false,
+	// 	size: "5px",
+	// 	height: "320px"
+	// }).css("width", "100%");
 
-	//Panel Scroll 2 for sms log tab
-	$(".panel-scroll-2").slimscroll({
-		alwaysVisible: false,
-		size: "5px",
-		height: "196px"
-	}).css("width", "100%");
+	// //Panel Scroll 2 for sms log tab
+	// $(".panel-scroll-2").slimscroll({
+	// 	alwaysVisible: false,
+	// 	size: "5px",
+	// 	height: "196px"
+	// }).css("width", "100%");
 		
 	/* 
 	==================================================
@@ -71,7 +71,7 @@
 		$(".list").addClass("no-display");
 		$(".chat").addClass("display-block");
 		
-		$(".fixed-leftside .sidebar").slimScroll({ scrollTo: '500px' });
+		//$(".fixed-leftside .sidebar").slimScroll({ scrollTo: '500px' });
 		return false;
 	});
 	
@@ -81,7 +81,7 @@
 		$(".chat ul").append('<li class="right animated fadeIn"><div class="clearfix"><div class="message">' + chatval + '</div></div><span>now</span></li>');
 		$(this).val('');
 		var scrollTo_val = $('.fixed-leftside .sidebar').prop('scrollHeight') + 'px';
-		$(".fixed-leftside .sidebar").slimScroll({ scrollTo: scrollTo_val });
+		//$(".fixed-leftside .sidebar").slimScroll({ scrollTo: scrollTo_val });
 	});
 	
 	//Chat Close
@@ -103,12 +103,12 @@
     //Enable sidebar toggle
 	$('.sidebar-toggle').click( function() {
 		$("body").toggleClass("sidebar-sm");
-		$(".sidebar-sm .sidebar").slimscroll({
-			color: "rgba(255,255,255,0.5)",
-			size: "3px",
-			touchScrollStep: 80,
-			height: ($(window).height() - $("header").height() - $(".leftside .footer").innerHeight()) + "px",
-		});
+		// $(".sidebar-sm .sidebar").slimscroll({
+		// 	color: "rgba(255,255,255,0.5)",
+		// 	size: "3px",
+		// 	touchScrollStep: 80,
+		// 	height: ($(window).height() - $("header").height() - $(".leftside .footer").innerHeight()) + "px",
+		// });
 		return false;
     });
 	
@@ -119,6 +119,11 @@
 		touchScrollStep: 80,
 		height: ($(window).height() - $("header").height() - $(".leftside .footer").innerHeight()) + "px",
 	});
+	$(".nav-sidebar").hover(function(){
+			$("body").css("overflow-y", "hidden");
+		}, function(){
+			$("body").css("overflow-y", "scroll");
+	  });
 	
 	//Todo
 	$('.todo .form-control').change(function () {
@@ -153,12 +158,12 @@
 	});
 	
 	//Dropdown-menu Scroll
-	$(".navbar .dropdown-menu ul.scroll").slimscroll({
-        alwaysVisible: false,
-        size: "3px",
-        height: "350px", 
-		touchScrollStep: 80,
-    }).css("width", "100%");
+	// $(".navbar .dropdown-menu ul.scroll").slimscroll({
+    //     alwaysVisible: false,
+    //     size: "3px",
+    //     height: "350px", 
+	// 	touchScrollStep: 80,
+    // }).css("width", "100%");
 	
     //Tooltip
     $("[data-toggle='tooltip']").tooltip();

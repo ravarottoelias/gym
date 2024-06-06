@@ -210,6 +210,9 @@ class Utilities
     public static function getOccupation($occupation)
     {
         switch ($occupation) {
+        case '0':
+            return 'Student';
+            break;
         case '1':
             return 'Housewife';
             break;
