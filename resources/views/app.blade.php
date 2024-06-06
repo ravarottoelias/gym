@@ -45,9 +45,8 @@
     <link href="{{ URL::asset('assets/plugins/bootstrapValidator/bootstrapValidator.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/plugins/bootstrap-select/css/bootstrap-select.min.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/plugins/bootstrap-tokenfield/css/bootstrap-tokenfield.min.css') }}" rel="stylesheet"/>
     <!-- END PLUGIN STYLES -->
-
+    
     <!-- BEGIN THEME STYLES -->
     <link href="{{ URL::asset('assets/css/material.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet"/>
@@ -56,6 +55,7 @@
     <link href="{{ URL::asset('assets/css/responsive.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/mystyle.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/print.css') }}" media="print" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/plugins/bbootstrap/css/bootstrap-theme.css') }}" rel="stylesheet"/>
     <!-- END THEME STYLES -->
     @include('_jsVariables')
     @yield('header_scripts')
