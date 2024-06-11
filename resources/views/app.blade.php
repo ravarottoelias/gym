@@ -29,7 +29,7 @@
     <title>Gym Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- BEGIN CORE FRAMEWORK -->
-    <link href="{{ URL::asset('assets/plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"/>
     <!-- END CORE FRAMEWORK -->
@@ -55,7 +55,6 @@
     <link href="{{ URL::asset('assets/css/responsive.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/mystyle.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/print.css') }}" media="print" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/plugins/bbootstrap/css/bootstrap-theme.css') }}" rel="stylesheet"/>
     <!-- END THEME STYLES -->
     @include('_jsVariables')
     @yield('header_scripts')

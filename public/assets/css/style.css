@@ -1001,6 +1001,10 @@ header .logo,
 	margin-right: 3px;
 }
 
+.leftside .nav-sidebar > li > a > i {
+	color: #5bb381;
+}
+
 
 
 .leftside .nav-profile {

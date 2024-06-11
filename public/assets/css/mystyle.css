@@ -1,3 +1,13 @@
+/*
+*
+*@brand-primary:         #4a154b;
+*@brand-success:         #5bb381;
+*@brand-info:            #64c3eb;
+*@brand-warning:         #e3b34c;
+*@brand-danger:          #ce375c;
+*
+*/
+
 /* Helpers */
 .margin-right-10{
 	margin-right: 10px
@@ -12,7 +22,7 @@
 ********************************/
 /* Global - Master */
 .auth-page, header .logo, .leftside, .leftside .widget .footer {
-    background: #000000;
+    background: #4a154b;
 }
 
 .nav-profile .tools{
