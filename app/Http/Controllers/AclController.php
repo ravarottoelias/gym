@@ -190,7 +190,7 @@ class AclController extends Controller
 
             if ($deletePermissions->count()) {
                 foreach ($deletePermissions as $deletePermission) {
-                    Permission_role::where('role_id', $id)->where('permission_id', $deletePermission)->delete();
+                    PermissionRole::where('role_id', $id)->where('permission_id', $deletePermission)->delete();
                 }
             }
 
@@ -210,7 +210,7 @@ class AclController extends Controller
     {
         DB::beginTransaction();
         try {
-            Permission_role::where('role_id', $id)->delete();
+            PermissionRole::where('role_id', $id)->delete();
             Role::where('id', $id)->delete();
 
             DB::commit();
