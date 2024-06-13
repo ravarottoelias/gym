@@ -42,20 +42,16 @@
                                         {!! Form::text('financial_end',$settings['financial_end'],['class'=>'form-control datepicker-default', 'id' => 'financial_end']) !!}
                                     </div>
                                 </div>
-
-
                             </div>
 
                             <div class="row">
-                                {{ $settings['gym_logo'] }}
                                 @if($settings['gym_logo'] != "")
                                     <div class="col-sm-4">
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     {!! Form::label('gym_logo',@trans('custom.gym_logo')) !!}<br>
-                                                    {{-- <img alt="gym logo" src="{{url('/images/Invoice/'.'gym_logo'.'.jpg') }}"/> --}}
-                                                    <img alt="gym logo" src="{{asset(Storage::url($settings['gym_logo'])) }}"/>
+                                                    <img alt="gym logo" src="{{asset(Storage::url($settings['gym_logo'])) }}" height="45"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -270,6 +266,46 @@
                                         </div>
                                     </div>
                                     @endrole
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EMAIL Settings -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel no-border">
+                        <div class="panel-title">
+                            <div class="panel-head font-size-15"><i class="fa fa-envelope-o"></i> Email</div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="row"><!--Main row start-->
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                {!! Form::label('email', @trans('custom.turn_emails_on?')) !!}
+                                                {!! Form::select('email',array('0' => 'No', '1' => 'Yes'),$settings['email'],['class'=>'form-control selectpicker show-tick show-menu-arrow', 'id' => 'email']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                {!! Form::label('primary_email',@trans('custom.primary_email')) !!}
+                                                {!! Form::text('primary_email',$settings['primary_email'],['class'=>'form-control', 'id' => 'primary_email']) !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                {!! Form::label('enabled_email_cc', @trans('custom.enabled_email_cc?')) !!}
+                                                {!! Form::select('enabled_email_cc',array('0' => 'No', '1' => 'Yes'),$settings['enabled_email_cc'],['class'=>'form-control selectpicker show-tick show-menu-arrow', 'id' => 'enabled_email_cc']) !!}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

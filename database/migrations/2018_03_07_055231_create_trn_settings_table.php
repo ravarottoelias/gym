@@ -15,8 +15,8 @@ class CreateTrnSettingsTable extends Migration
         Schema::create('trn_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key', 50)->unique('key');
-            $table->string('value', 50);
-            $table->dateTime('updated_at');
+            $table->string('value', 50)->nullable();
+            $table->timestamps();
         });
     }
 

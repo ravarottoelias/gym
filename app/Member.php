@@ -6,12 +6,13 @@ use Carbon\Carbon;
 use Sofa\Eloquence\Eloquence;
 use Spatie\MediaLibrary\Media;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
 class Member extends Model implements HasMediaConversions
 {
-    use HasMediaTrait, Eloquence;
+    use HasMediaTrait, Eloquence, Notifiable;
     use createdByUser, updatedByUser;
 
     protected $table = 'mst_members';

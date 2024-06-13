@@ -13,8 +13,6 @@ class Setting extends Model
             'value',
      ];
 
-    const CREATED_AT = null;
-
     // Issue to be fixed
     public function scopeValue($query)
     {

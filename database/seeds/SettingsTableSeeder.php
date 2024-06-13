@@ -95,6 +95,17 @@ class SettingsTableSeeder extends Seeder
                 'value' => '8672686758',
             ],
             [
+                'key' => 'email',
+                'value' => '0',
+            ],[
+                'key' => 'enabled_email_cc',
+                'value' => '0',
+            ],
+            [
+                'key' => 'primary_email',
+                'value' => '',
+            ],
+            [
                 'key' => 'discounts',
                 'value' => '5,10,15,20,25',
             ],
