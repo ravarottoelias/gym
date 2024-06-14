@@ -16,7 +16,6 @@
         <form id="loginform" method="post" action="{{ route('password.email') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             <div class="box-body padding-md">
-
                 <div class="form-group">
                     <input type="text" name="email" class="form-control input-lg" placeholder="Email"/>
                 </div>
