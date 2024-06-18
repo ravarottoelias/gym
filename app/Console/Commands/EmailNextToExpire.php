@@ -7,22 +7,23 @@ use Carbon\Carbon;
 use App\Subscription;
 use Illuminate\Console\Command;
 use App\Notifications\EmailExpiredNotification;
+use App\Notifications\EmailNextToExpireNotification;
 
-class EmailExpired extends Command
+class EmailNextToExpire extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'email:expired';
+    protected $signature = 'email:next-to-expire';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Triggers email alerts for expired subscriptions';
+    protected $description = 'Triggers email alerts for next to expire subscriptions';
 
     /**
      * Create a new command instance.
@@ -47,10 +48,10 @@ class EmailExpired extends Command
             if(Utilities::getSetting('enabled_email_cc') == true) 
                 array_push($copyTo, trim(Utilities::getSetting('primary_email')));
                 
-            $subscriptions = Subscription::where('status', '=', \constSubscription::Expired)->where('end_date', '=', Carbon::today()->subDay())->get();
+            $subscriptions = Subscription::where('status', '=', \constSubscription::onGoing)->where('end_date', '=', Carbon::today()->addDays(4))->get();
             
             foreach ($subscriptions as $subscription) {
-                $subscription->member->notify(new EmailExpiredNotification($subscription, $copyTo));      
+                $subscription->member->notify(new EmailNextToExpireNotification($subscription, $copyTo));      
             }
         }
         

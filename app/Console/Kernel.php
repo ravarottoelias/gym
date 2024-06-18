@@ -25,6 +25,8 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\BirthdaySms::class,
         \App\Console\Commands\SmsStatus::class,
         \App\Console\Commands\ReshootOfflineSms::class,
+        \App\Console\Commands\EmailExpired::class,
+        \App\Console\Commands\EmailNextToExpire::class,
     ];
 
     /**
@@ -37,6 +39,12 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('reshoot:offlineSms')
                  ->hourly();
+
+        $schedule->command('email:expired')
+                 ->dailyAt('09:00');
+        
+        $schedule->command('email:next-to-expire')
+                 ->dailyAt('10:00');
 
         $schedule->command('birthday:sms')
                  ->dailyAt('00:01');

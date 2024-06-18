@@ -2,8 +2,6 @@
 
 namespace App\Listeners;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -27,6 +25,6 @@ class LogSuccessfulLogin
      */
     public function handle($event)
     {
-        Log::info("LogSuccessfulLogin::handle: " . Auth::user());
+        //
     }
 }
