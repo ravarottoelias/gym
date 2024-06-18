@@ -48,7 +48,9 @@ class EmailNextToExpire extends Command
             if(Utilities::getSetting('enabled_email_cc') == true) 
                 array_push($copyTo, trim(Utilities::getSetting('primary_email')));
                 
-            $subscriptions = Subscription::where('status', '=', \constSubscription::onGoing)->where('end_date', '=', Carbon::today()->addDays(4))->get();
+            $subscriptions = Subscription::whereIn('status', [\constSubscription::onGoing, \constSubscription::renewed ])
+                                            ->where('end_date', '=', Carbon::today()->addDays(4))
+                                            ->get();
             
             foreach ($subscriptions as $subscription) {
                 $subscription->member->notify(new EmailNextToExpireNotification($subscription, $copyTo));      
