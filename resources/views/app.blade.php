@@ -238,11 +238,11 @@
                         @permission(['manage-gymie','manage-plans','add-plan'])
                         <li class="{{ Utilities::setActiveMenu('plans/create') }}"><a href="{{ action('PlansController@create') }}">{{ trans('custom.add_plan') }}</a></li>
                         @endpermission
-                        @permission(['manage-gymie','manage-services','view-service'])
+                        @permission(['manage-gymie'])
                         <li class="{{ Utilities::setActiveMenu('plans/services/all') }}"><a href="{{ action('ServicesController@index') }}">{{ trans('custom.gym_services') }}</a>
                         </li>
                         @endpermission
-                        @permission(['manage-gymie','manage-services','add-service'])
+                        @permission(['manage-gymie'])
                         <li class="{{ Utilities::setActiveMenu('plans/services/create') }}"><a href="{{ action('ServicesController@create') }}">{{ trans('custom.add_service') }}</a>
                         </li>
                         @endpermission

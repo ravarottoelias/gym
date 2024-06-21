@@ -27,15 +27,15 @@
         </div>
     </div>
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <?php $services = App\Service::lists('name', 'id'); ?>
+                @php $services = App\Service::lists('name', 'id'); @endphp
                 {!! Form::label('service_id',@trans('custom.service')) !!}
                 {!! Form::select('service_id',$services,null,['class'=>'form-control selectpicker show-tick show-menu-arrow','id'=>'service_id','data-live-search'=> 'true']) !!}
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col-sm-6">
@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('amount','Amount (without taxes)') !!}
+                {!! Form::label('Precio','Precio (without taxes)') !!}
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-inr"></i></div>
                     {!! Form::text('amount',null,['class'=>'form-control', 'id' => 'amount']) !!}

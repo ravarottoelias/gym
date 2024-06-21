@@ -15,7 +15,7 @@ class CreateMstPlansTable extends Migration
         Schema::create('mst_plans', function (Blueprint $table) {
             $table->integer('id', true)->comment('Unique Record Id for system');
             $table->string('plan_code', 50)->unique('plan_id')->comment('Unique plan id for reference');
-            $table->integer('service_id')->index('FK_mst_plans_mst_services');
+            $table->integer('service_id')->nullable();
             $table->string('plan_name', 50)->comment('name of the plan');
             $table->text('plan_details', 65535)->comment('plan details');
             $table->integer('days')->comment('duration of the plans in days');
