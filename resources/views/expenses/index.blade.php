@@ -100,9 +100,9 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center">{{ @trans('custom.expense_name') }}</th>
-                                        <th class="text-center visible-lg-inline-block">{{ @trans('custom.expense_category') }}</th>
+                                        <th class="text-center visible-lg">{{ @trans('custom.expense_category') }}</th>
                                         <th class="text-center visible-lg">{{ @trans('custom.amount') }}</th>
-                                        <th class="text-center visible-lg-inline-block">{{ @trans('custom.repeat') }}</th>
+                                        <th class="text-center visible-lg">{{ @trans('custom.repeat') }}</th>
                                         <th class="text-center visible-lg">{{ @trans('custom.payment_date') }}</th>
                                         <th class="text-center visible-lg">{{ @trans('custom.on') }}</th>
                                         <th class="text-center">{{ @trans('custom.status') }}</th>
@@ -115,7 +115,7 @@
                                             <td class="text-center">{{ $expense->name }}</td>
                                             <td class="text-center visible-lg">{{ $expense->category->name }}</td>
                                             <td class="text-center visible-lg"> @money($expense->amount)</td>
-                                            <td class="text-center visible-lg-inline-block">{{ Utilities::expenseRepeatIntervel ($expense->repeat) }}</td>
+                                            <td class="text-center visible-lg">{{ Utilities::expenseRepeatIntervel ($expense->repeat) }}</td>
                                             <td class="text-center visible-lg">{{ $expense->due_date->format('Y-m-d') }}</td>
                                             <td class="text-center visible-lg">{{ $expense->created_at->toDayDateTimeString() }}</td>
                                             <td class="text-center"><span
