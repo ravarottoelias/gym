@@ -260,6 +260,7 @@ return [
     /**
      * General Buttons
      */
+    'create' => 'Guardar',
     'cancel' => 'Cancelar',
     'renew' => 'Renovar',
     'view_all' => 'Ver todos',
@@ -267,6 +268,7 @@ return [
     'add_new' => 'Agregar nuevo',
     'pay' => 'Pagar',
     'edit' => 'Editar',
+    'update' => 'Guardar',
     'delete' => 'Eliminar',
 
     /**

@@ -9,7 +9,7 @@
             @include('flash::message')
             <h1 class="page-title no-line-height"> {{ @trans('custom.members') }}
                 @permission(['manage-gymie','manage-members','add-member'])
-                <a href="{{ action('MembersController@create') }}" class="page-head-btn btn-sm btn-primary active" role="button">Add New</a>
+                <a href="{{ action('MembersController@create') }}" class="page-head-btn btn-sm btn-primary active" role="button">{{ @trans('custom.add_new') }}</a>
                 <small>Details of all gym members</small>
             </h1>
             @permission(['manage-gymie','pagehead-stats'])

@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-sm-2 pull-right">
                         <div class="form-group">
-                            {!! Form::submit('Create', ['class' => 'btn btn-primary pull-right']) !!}
+                            {!! Form::submit(@trans('custom.create'), ['class' => 'btn btn-primary pull-right']) !!}
                         </div>
                     </div>
                 </div>

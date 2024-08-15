@@ -95,16 +95,16 @@
                             @if($expenseCategories->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
-                            <div class="table-responsive">
+                            <div class="">
                                 <table id="expenses" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th class="text-center">{{ @trans('custom.expense_name') }}</th>
-                                        <th class="text-center">{{ @trans('custom.expense_category') }}</th>
-                                        <th class="text-center">{{ @trans('custom.amount') }}</th>
-                                        <th class="text-center">{{ @trans('custom.repeat') }}</th>
-                                        <th class="text-center">{{ @trans('custom.payment_date') }}</th>
-                                        <th class="text-center">{{ @trans('custom.on') }}</th>
+                                        <th class="text-center visible-lg-inline-block">{{ @trans('custom.expense_category') }}</th>
+                                        <th class="text-center visible-lg">{{ @trans('custom.amount') }}</th>
+                                        <th class="text-center visible-lg-inline-block">{{ @trans('custom.repeat') }}</th>
+                                        <th class="text-center visible-lg">{{ @trans('custom.payment_date') }}</th>
+                                        <th class="text-center visible-lg">{{ @trans('custom.on') }}</th>
                                         <th class="text-center">{{ @trans('custom.status') }}</th>
                                         <th class="text-center">{{ @trans('custom.actions') }}</th>
                                     </tr>
@@ -113,46 +113,28 @@
                                     @foreach ($expenses as $expense)
                                         <tr>
                                             <td class="text-center">{{ $expense->name }}</td>
-                                            <td class="text-center">{{ $expense->category->name }}</td>
-                                            <td class="text-center"> @money($expense->amount)</td>
-                                            <td class="text-center">{{ Utilities::expenseRepeatIntervel ($expense->repeat) }}</td>
-                                            <td class="text-center">{{ $expense->due_date->format('Y-m-d') }}</td>
-                                            <td class="text-center">{{ $expense->created_at->toDayDateTimeString() }}</td>
+                                            <td class="text-center visible-lg">{{ $expense->category->name }}</td>
+                                            <td class="text-center visible-lg"> @money($expense->amount)</td>
+                                            <td class="text-center visible-lg-inline-block">{{ Utilities::expenseRepeatIntervel ($expense->repeat) }}</td>
+                                            <td class="text-center visible-lg">{{ $expense->due_date->format('Y-m-d') }}</td>
+                                            <td class="text-center visible-lg">{{ $expense->created_at->toDayDateTimeString() }}</td>
                                             <td class="text-center"><span
                                                         class="{{ Utilities::getPaidUnpaid ($expense->paid) }}">{{ Utilities::getInvoiceStatus ($expense->paid) }}
                                             </td>
                                             <td class="text-center">
                                                 @permission(['manage-gymie','manage-expenses','edit-expense'])
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info">Actions</button>
-                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li>
-                                                            @if($expense->paid == 0)
-                                                                <a href="{{ action('ExpensesController@paid',['id' => $expense->id]) }}">
-                                                                    Mark as paid
-                                                                </a>
-                                                            @endif
-                                                        </li>
                                                         @permission(['manage-gymie','manage-expenses','edit-expense'])
-                                                        <li>
-                                                            <a href="{{ action('ExpensesController@edit',['id' => $expense->id]) }}">
-                                                                Edit details
+                                                            <a class="btn btn-default" href="{{ action('ExpensesController@edit',['id' => $expense->id]) }}">
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                             </a>
-                                                        </li>
                                                         @endpermission
                                                         @permission(['manage-gymie','manage-expenses','delete-expense'])
-                                                        <li>
-                                                            <a href="#" class="delete-record" data-csrf-token="{{ csrf_token() }}" data-delete-url="{{ url('expenses/'.$expense->id.'/delete') }}"
+                                                            <a href="#" class="delete-record btn btn-default" data-csrf-token="{{ csrf_token() }}" data-delete-url="{{ url('expenses/'.$expense->id.'/delete') }}"
                                                                data-record-id="{{$expense->id}}">
-                                                                Delete expense
+                                                               <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                             </a>
-                                                        </li>
                                                         @endpermission
-                                                    </ul>
                                                 </div>
                                                 @endpermission
                                             </td>

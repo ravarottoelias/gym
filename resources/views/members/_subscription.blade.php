@@ -69,7 +69,7 @@ use Carbon\Carbon;
                 <div class="row">
                     <div class="col-sm-2 pull-right">
                         <div class="form-group">
-                            <span class="btn btn-sm btn-primary pull-right" id="addSubscription">Add</span>
+                            <span class="btn btn-sm btn-primary pull-right" id="addSubscription">{{ @trans('custom.add') }}</span>
                         </div>
                     </div>
                 </div>

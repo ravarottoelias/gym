@@ -111,7 +111,7 @@
                             <div class="row">
                                 <div class="col-sm-2 pull-right">
                                     <div class="form-group">
-                                        <span class="btn btn-sm btn-primary pull-right" id="addSubscription">Add</span>
+                                        <span class="btn btn-sm btn-primary pull-right" id="addSubscription">{{ @trans('custom.add') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -222,8 +222,9 @@
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        {!! Form::label('mode','Mode') !!}
-                                        {!! Form::select('mode',array('1' => 'Cash', '0' => 'Cheque'),1,['class'=>'form-control selectpicker show-tick', 'id' => 'mode']) !!}
+                                        @php $modes = Utilities::getAllPaymentModes() @endphp
+                                        {!! Form::label('mode',@trans('custom.mode')) !!}
+                                        {!! Form::select('mode', $modes ,1,['class'=>'form-control selectpicker show-tick', 'id' => 'mode']) !!}
                                     </div>
                                 </div>
 
@@ -254,7 +255,7 @@
             <div class="row">
                 <div class="col-sm-2 pull-right">
                     <div class="form-group">
-                        {!! Form::submit('Create', ['class' => 'btn btn-primary pull-right']) !!}
+                        {!! Form::submit(@trans('custom.create'), ['class' => 'btn btn-primary pull-right']) !!}
                     </div>
                 </div>
             </div>

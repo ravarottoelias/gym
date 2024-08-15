@@ -34,7 +34,7 @@
                             @if($expenseCategories->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
-                            <div class="table-responsive">
+                            <div class="">
                                 <table id="expenseCategories" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -51,37 +51,24 @@
                                                         class="{{ Utilities::getActiveInactive ($expenseCategory->status) }}">{{ Utilities::getStatusValue ($expenseCategory->status) }}</span>
                                             </td>
                                             <td class="text-center">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-info">Actions</button>
-                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li>
-                                                            @permission(['manage-gymie','manage-expenseCategories','edit-expenseCategory'])
-                                                            <a href="{{ action('ExpenseCategoriesController@edit',['id' => $expenseCategory->id]) }}">
-                                                                Edit Details
-                                                            </a>
-                                                            @endpermission
-                                                        </li>
-                                                        <li>
-                                                            <?php
-                                                            $dependency = ($expenseCategory->expenses->isEmpty() ? "false" : "true");
-                                                            ?>
-                                                            @permission(['manage-gymie','manage-expenseCategories','delete-expenseCategory'])
-                                                            <a href="#"
-                                                               class="delete-record"
-                                                               data-dependency="{{ $dependency }}"
-                                                               data-dependency-message="You have expenses assigned to this category, either delete them or assign them to new category"
-                                                               data-delete-url="{{ url('expenses/categories/'.$expenseCategory->id.'/archive') }}"
-                                                               data-record-id="{{$expenseCategory->id}}">
-                                                                Delete Category
-                                                            </a>
-                                                            @endpermission
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <div class="btn-group" role="group" aria-label="...">
+                                                    @permission(['manage-gymie','manage-expenseCategories','edit-expenseCategory'])
+                                                        <a class="btn btn-default" href="{{ action('ExpenseCategoriesController@edit',['id' => $expenseCategory->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    @endpermission
+                                                    @php
+                                                        $dependency = ($expenseCategory->expenses->isEmpty() ? "false" : "true");
+                                                    @endphp
+                                                    @permission(['manage-gymie','manage-expenseCategories','delete-expenseCategory'])
+                                                        <a href="#"
+                                                            class="btn btn-default delete-record"
+                                                            data-dependency="{{ $dependency }}"
+                                                            data-dependency-message="You have expenses assigned to this category, either delete them or assign them to new category"
+                                                            data-delete-url="{{ url('expenses/categories/'.$expenseCategory->id.'/archive') }}"
+                                                            data-record-id="{{$expenseCategory->id}}">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    @endpermission
+                                                  </div>
                                             </td>
                                         </tr>
 
